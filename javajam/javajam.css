@@ -1,0 +1,41 @@
+body{
+  background-color:#FCEBB6;
+  color:#221811;
+  font-family:"Source Sans 3",Tahoma,Arial,sans-serif;
+  margin:0;
+}
+#site{
+  background-color:#FEFAEB;
+  max-width:980px;
+  width:90%;
+  margin:0 auto;
+}
+header{
+  background-color:#D2B48C;
+  color:#8C3826;
+  text-align:center;
+  padding:0.25rem 0;
+}
+h1{
+  line-height:1.9;
+  margin:0;
+}
+h2{
+  color:#8C3826;
+  margin:0.75rem 1rem 0.5rem;
+}
+nav{
+  font-weight:600;
+  text-align:center;
+  padding:0.4rem 0;
+}
+main{
+  padding:0 1rem 1rem;
+}
+footer{
+  background-color:#D2B48C;
+  font-size:0.8em;
+  font-style:italic;
+  text-align:center;
+  padding:0.6rem 0;
+}
