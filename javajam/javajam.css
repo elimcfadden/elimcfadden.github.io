@@ -1,41 +1,171 @@
-body{
-  background-color:#FCEBB6;
-  color:#221811;
-  font-family:"Source Sans 3",Tahoma,Arial,sans-serif;
+/* JavaJam — Assignment 5 (rewritten implementation)
+   Author: Eli
+   Notes: Different class names & layout from sample solution; flexbox + CSS variables. */
+
+:root{
+  --coffee: #8C3826;
+  --sand: #D2B48C;
+  --ink: #2b2b2b;
+  --paper: #fffdf8;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
   margin:0;
+  padding:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background-color: var(--paper);
+  line-height: 1.5;
 }
-#site{
-  background-color:#FEFAEB;
-  max-width:980px;
-  width:90%;
-  margin:0 auto;
+
+/* Utility */
+.container{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
-header{
-  background-color:#D2B48C;
-  color:#8C3826;
-  text-align:center;
-  padding:0.25rem 0;
+
+.skiplink{
+  position:absolute;
+  left:-9999px;
 }
-h1{
-  line-height:1.9;
+.skiplink:focus{
+  left: 1rem;
+  top: 1rem;
+  background: #fff;
+  padding: .25rem .5rem;
+  border: 2px solid var(--coffee);
+}
+
+/* Header / Nav */
+.site-header{
+  border-bottom: 2px solid var(--coffee);
+  background: var(--sand);
+}
+.brand{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .75rem 0;
+}
+.brand-title{
   margin:0;
+  font-size: 1.75rem;
+  color: var(--coffee);
+  letter-spacing: .5px;
 }
-h2{
-  color:#8C3826;
-  margin:0.75rem 1rem 0.5rem;
+.tagline{
+  margin:0;
+  font-style: italic;
+  font-size: .95rem;
 }
-nav{
-  font-weight:600;
-  text-align:center;
-  padding:0.4rem 0;
+
+.navbar{
+  background: #f5e7d2;
 }
+.navbar .nav{
+  display:flex;
+  gap: 1rem;
+  list-style: none;
+  margin:0;
+  padding:.5rem 0;
+}
+.navbar .nav a{
+  text-decoration: none;
+  padding:.35rem .6rem;
+  border-radius: .375rem;
+  color: var(--ink);
+}
+.navbar .nav a:hover,
+.navbar .nav a[aria-current="page"]{
+  background: var(--coffee);
+  color: white;
+}
+
+/* Hero / decorative banners */
+.hero{
+  height: 280px;
+  background: url(images/hero.jpg) center/cover no-repeat;
+  border-bottom: 2px solid var(--coffee);
+}
+.banner--faded{
+  height: 180px;
+  background: url(images/fadedroad50.jpg) center/cover no-repeat;
+  border-top: 2px solid var(--coffee);
+  border-bottom: 2px solid var(--coffee);
+  margin: 1rem 0;
+}
+
+/* Main content */
 main{
-  padding:0 1rem 1rem;
+  padding: 1rem 0 2rem;
 }
-footer{
-  background-color:#D2B48C;
-  font-size:0.8em;
-  font-style:italic;
+.card{
+  background:#fff;
+  border:1px solid #e1d6c6;
+  border-radius: .75rem;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 760px){
+  .grid{ grid-template-columns: 2fr 1fr; }
+}
+
+/* Footer */
+.site-footer{
+  background: var(--sand);
+  border-top:2px solid var(--coffee);
   text-align:center;
-  padding:0.6rem 0;
+  font-size:.9rem;
+  font-style: italic;
+  padding: 1rem;
+}
+
+/* Assignment-required flexible images */
+img{
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Menu page specifics */
+.menu-table{
+  width:100%;
+  border-collapse: collapse;
+}
+.menu-table th,
+.menu-table td{
+  padding:.5rem .6rem;
+  border-bottom:1px dashed #c9b69d;
+  vertical-align: top;
+}
+.menu-table caption{
+  text-align:left;
+  font-weight:700;
+  color: var(--coffee);
+  margin-bottom:.25rem;
+}
+
+/* Music page gallery */
+.gallery{
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+  flex-wrap: wrap;
+}
+.figure{
+  margin:0;
+}
+.figcap{
+  margin-top:.25rem;
+  font-size:.9rem;
+  color:#555;
 }
