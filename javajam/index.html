@@ -1,57 +1,43 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>JavaJam Coffee Bar</title>
-  <meta name="description" content="JavaJam Coffee Bar — Assignment 5">
-  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="javajam.css">
 </head>
 <body>
-  <a class="skiplink" href="#content">Skip to content</a>
-
+<div class="wrapper">
   <header class="site-header">
-    <div class="container brand">
-      <h1 class="brand-title">JavaJam Coffee Bar</h1>
-      <p class="tagline">Relax, unwind, and sip something amazing.</p>
-    </div>
-    <nav class="navbar">
-      <div class="container">
-        <ul class="nav">
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="music.html">Music</a></li>
-        </ul>
-      </div>
-    </nav>
+    <h1>JavaJam Coffee Bar</h1>
+    <p>Friendly folks • Fresh beans • Chill vibes</p>
   </header>
 
-  <div class="hero" role="img" aria-label="Warm coffee shop with a rustic vibe"></div>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+    </ul>
+  </nav>
 
-  <main id="content" class="container">
-    <div class="grid">
-      <section class="card">
-        <h2>Welcome</h2>
-        <p>At JavaJam, we brew fresh coffee and community. Stop by to enjoy a cozy atmosphere, friendly faces, and live music on select nights.</p>
-        <ul>
-          <li><strong>Hours:</strong> Mon–Sat 7am–9pm; Sun 8am–5pm</li>
-          <li><strong>Location:</strong> 8541 Java Road</li>
-          <li><strong>Phone:</strong> (555) 555‑5555</li>
-        </ul>
-      </section>
-
-      <aside class="card">
-        <h3>What&apos;s New</h3>
-        <p>Try our seasonal roasts and house‑made baked goods. Don’t miss open‑mic Thursdays!</p>
-      </aside>
-    </div>
-
-    <div class="banner--faded" role="img" aria-label="Country road background texture"></div>
+  <main>
+    <div class="hero"><h2>Welcome in!</h2></div>
+    <section class="card">
+      <h3>About JavaJam</h3>
+      <p>Drop by for carefully brewed coffee, locally baked treats, and live music nights. We keep the atmosphere cozy so you can relax, study, or chat with friends.</p>
+      <p class="note">Open daily 6am–9pm • 123 Bean Street • (555)‑555‑1212</p>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <small>&copy; JavaJam Coffee Bar &middot; All rights reserved</small>
+  <footer>
+    <small>&copy; <span id="yr"></span> JavaJam Coffee Bar</small>
   </footer>
+</div>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

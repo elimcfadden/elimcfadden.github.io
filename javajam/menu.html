@@ -1,71 +1,79 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JavaJam — Menu</title>
-  <meta name="description" content="JavaJam Coffee Bar Menu">
-  <link rel="icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JavaJam Coffee Bar — Menu</title>
   <link rel="stylesheet" href="javajam.css">
 </head>
 <body>
-  <a class="skiplink" href="#content">Skip to content</a>
-
-  <header class="site-header">
-    <div class="container brand">
-      <h1 class="brand-title">JavaJam Coffee Bar</h1>
-      <p class="tagline">Brewed fresh daily.</p>
-    </div>
-    <nav class="navbar">
-      <div class="container">
-        <ul class="nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html" aria-current="page">Menu</a></li>
-          <li><a href="music.html">Music</a></li>
-        </ul>
-      </div>
-    </nav>
+<div class="wrapper">
+  <header>
+    <h1>Our Menu</h1>
+    <p>Classic coffeehouse favorites, simply priced.</p>
   </header>
 
-  <main id="content" class="container">
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" aria-current="page">Menu</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+    </ul>
+  </nav>
+
+  <main>
     <section class="card">
-      <h2>Our Favorites</h2>
-      <!-- Assignment note: using the obsolete align attribute on this image per textbook exercise -->
-      <img src="images/mugs.jpg" alt="coffee mugs" align="right" width="400" height="299">
-      <table class="menu-table" aria-describedby="dailies">
-        <caption id="dailies">Daily brews &amp; specialties</caption>
+      <h2>Coffee & Drinks</h2>
+      <table class="menu-table">
+        <caption>Prices shown per size</caption>
         <thead>
-          <tr><th scope="col">Item</th><th scope="col">Description</th><th scope="col">Price</th></tr>
+          <tr>
+            <th scope="col">Beverage</th>
+            <th scope="col">Description</th>
+            <th scope="col">Small</th>
+            <th scope="col">Medium</th>
+            <th scope="col">Large</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">House Blend</th>
-            <td>Smooth and balanced medium roast.</td>
+            <th scope="row">Just Java</th>
+            <td>Regular house blend, bottomless cup</td>
             <td>$2.00</td>
-          </tr>
-          <tr>
-            <th scope="row">Cappuccino</th>
-            <td>Rich espresso with a velvety foam cap.</td>
+            <td>$2.75</td>
             <td>$3.50</td>
           </tr>
           <tr>
-            <th scope="row">Iced Mocha</th>
-            <td>Chocolate, espresso, and chilled milk over ice.</td>
-            <td>$4.25</td>
+            <th scope="row">Cafe au Lait</th>
+            <td>Freshly brewed coffee with steamed milk</td>
+            <td>$2.50</td>
+            <td>$3.25</td>
+            <td>$4.00</td>
           </tr>
           <tr>
-            <th scope="row">Bagel &amp; Schmear</th>
-            <td>Toasted with cream cheese or butter.</td>
-            <td>$2.75</td>
+            <th scope="row">Iced Mocha</th>
+            <td>Chocolate, espresso, milk over ice</td>
+            <td>$3.00</td>
+            <td>$3.75</td>
+            <td>$4.50</td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">All syrups +$0.50 • Oat/Almond milk +$0.75</td>
+          </tr>
+        </tfoot>
       </table>
-      <p><em>Prices and availability subject to change.</em></p>
+      <p class="note">Tip: Hover the navigation to see the active state; table uses proper thead/tbody/tfoot for accessibility as requested in the case study.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <small>&copy; JavaJam Coffee Bar</small>
+  <footer>
+    <small>&copy; <span id="yr"></span> JavaJam Coffee Bar</small>
   </footer>
+</div>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
