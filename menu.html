@@ -1,79 +1,50 @@
-
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JavaJam Coffee Bar — Menu</title>
-  <link rel="stylesheet" href="javajam.css">
-</head>
-<body>
-<div class="wrapper">
-  <header>
-    <h1>Our Menu</h1>
-    <p>Classic coffeehouse favorites, simply priced.</p>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JavaJam Coffee Bar — Menu</title>
+    <meta name="description" content="JavaJam Coffee Bar — Assignment 9 (JavaScript)">
+    <link href="javajam.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">JavaJam Coffee Bar</a></h1>
+    </header>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+      </ul>
+    </nav>
+    <div class="hero" style="background-image:url('images/heromugs.jpg')"></div>
+    <main>
+      
+  <section class="grid">
+    <article class="card">
+      <h3>Just Java</h3>
+      <p>Endless Cup</p>
+      <p><strong>$3.50</strong></p>
+    </article>
+    <article class="card">
+      <h3>Café au Lait</h3>
+      <p>Smooth &amp; Steamy</p>
+      <p><strong>$4.25</strong></p>
+    </article>
+    <article class="card">
+      <h3>Iced Cappuccino</h3>
+      <p>Chilled &amp; Foamy</p>
+      <p><strong>$4.75</strong></p>
+    </article>
+  </section>
 
-  <nav aria-label="Primary">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html" aria-current="page">Menu</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section class="card">
-      <h2>Coffee & Drinks</h2>
-      <table class="menu-table">
-        <caption>Prices shown per size</caption>
-        <thead>
-          <tr>
-            <th scope="col">Beverage</th>
-            <th scope="col">Description</th>
-            <th scope="col">Small</th>
-            <th scope="col">Medium</th>
-            <th scope="col">Large</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Just Java</th>
-            <td>Regular house blend, bottomless cup</td>
-            <td>$2.00</td>
-            <td>$2.75</td>
-            <td>$3.50</td>
-          </tr>
-          <tr>
-            <th scope="row">Cafe au Lait</th>
-            <td>Freshly brewed coffee with steamed milk</td>
-            <td>$2.50</td>
-            <td>$3.25</td>
-            <td>$4.00</td>
-          </tr>
-          <tr>
-            <th scope="row">Iced Mocha</th>
-            <td>Chocolate, espresso, milk over ice</td>
-            <td>$3.00</td>
-            <td>$3.75</td>
-            <td>$4.50</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="5">All syrups +$0.50 • Oat/Almond milk +$0.75</td>
-          </tr>
-        </tfoot>
-      </table>
-      <p class="note">Tip: Hover the navigation to see the active state; table uses proper thead/tbody/tfoot for accessibility as requested in the case study.</p>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; <span id="yr"></span> JavaJam Coffee Bar</small>
-  </footer>
-</div>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-</body>
+    </main>
+    <footer>
+      <p>&copy; JavaJam Coffee Bar • <a href="mailto:you@example.com">you@example.com</a></p>
+      <p id="dateupdate"></p>
+      <script src="js/dateupdate.js"></script>
+    </footer>
+  </body>
 </html>

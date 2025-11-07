@@ -1,44 +1,58 @@
-
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JavaJam Coffee Bar — Music</title>
-  <link rel="stylesheet" href="javajam.css">
-</head>
-<body>
-<div class="wrapper">
-  <header>
-    <h1>Live at JavaJam</h1>
-    <p>Acoustic sets every Friday at 7pm.</p>
-  </header>
-
-  <nav aria-label="Primary">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="music.html" aria-current="page">Music</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section class="card">
-      <h2>Upcoming Performers</h2>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JavaJam Coffee Bar — Music</title>
+    <meta name="description" content="JavaJam Coffee Bar — Assignment 9 (JavaScript)">
+    <link href="javajam.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">JavaJam Coffee Bar</a></h1>
+    </header>
+    <nav aria-label="Primary">
       <ul>
-        <li>First Friday: Willow Strings</li>
-        <li>Second Friday: The Soft Beats</li>
-        <li>Third Friday: River & Road</li>
-        <li>Fourth Friday: Open Mic Night</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
       </ul>
-    </section>
-  </main>
+    </nav>
+    <div class="hero" style="background-image:url('images/heroguitar.jpg')"></div>
+    <main>
+      
+  <section class="card">
+    <h2>Music at JavaJam</h2>
+    <p>The first Friday night of each month is a special live set from 8–11 PM. Come early for a good seat.</p>
 
-  <footer>
-    <small>&copy; <span id="yr"></span> JavaJam Coffee Bar</small>
-  </footer>
-</div>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-</body>
+    <!-- Banner that will be highlighted if age >= 65 -->
+    <p id="senior-deal" class="deal-note">Free Friday Coffee Night for Seniors</p>
+
+    <!-- Script output target required by the assignment -->
+    <p id="verify"></p>
+    <script src="js/verifysenior.js"></script>
+  </section>
+
+  <section>
+    <h3>Upcoming</h3>
+    <div class="grid">
+      <figure>
+        <img src="images/melanie.jpg" alt="Performer Melanie">
+        <figcaption>January — Melanie Morris (folk)</figcaption>
+      </figure>
+      <figure>
+        <img src="images/gregthumb.jpg" alt="Performer Greg">
+        <figcaption>February — Tahoe Greg (acoustic)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+    </main>
+    <footer>
+      <p>&copy; JavaJam Coffee Bar • <a href="mailto:you@example.com">you@example.com</a></p>
+      <p id="dateupdate"></p>
+      <script src="js/dateupdate.js"></script>
+    </footer>
+  </body>
 </html>

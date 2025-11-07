@@ -1,80 +1,52 @@
-
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JavaJam Coffee Bar — Jobs</title>
-  <link rel="stylesheet" href="javajam.css">
-</head>
-<body>
-<div class="wrapper">
-  <header>
-    <h1>Work With Us</h1>
-    <p>We’re always looking for friendly baristas and music‑night helpers.</p>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JavaJam Coffee Bar — Jobs</title>
+    <meta name="description" content="JavaJam Coffee Bar — Assignment 9 (JavaScript)">
+    <link href="javajam.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">JavaJam Coffee Bar</a></h1>
+    </header>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+      </ul>
+    </nav>
+    <div class="hero" style="background-image:url('images/herojobs.jpg')"></div>
+    <main>
+      
+  <section class="card">
+    <h2>Jobs</h2>
+    <p>We’re always looking for friendly baristas. Bring your resume to the counter or email us.</p>
+    <form aria-label="Apply for a job at JavaJam">
+      <p>
+        <label for="name">Name</label><br>
+        <input id="name" name="name" required>
+      </p>
+      <p>
+        <label for="email">Email</label><br>
+        <input id="email" name="email" type="email" required>
+      </p>
+      <p>
+        <label for="message">Tell us a bit about you</label><br>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </p>
+      <p><button type="submit">Send</button></p>
+    </form>
+  </section>
 
-  <nav aria-label="Primary">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="jobs.html" aria-current="page">Jobs</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <div class="hero"><h2>Apply Today</h2></div>
-    <section class="card">
-      <h3>Job Application</h3>
-      <form method="post" action="https://example.com/submit">
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input id="name" name="name" type="text" required>
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required>
-        </div>
-
-        <div class="field">
-          <label for="start">Earliest Start Date</label>
-          <input id="start" name="start" type="date" required>
-        </div>
-
-        <div class="field">
-          <label for="role">Position Interest</label>
-          <select id="role" name="role" required>
-            <option value="">Choose one…</option>
-            <option>Barista</option>
-            <option>Shift Lead</option>
-            <option>Music Night Staff</option>
-          </select>
-        </div>
-
-        <fieldset class="field" style="border:1px solid #e0d2be;padding: .6rem .8rem; border-radius:.5rem;">
-          <legend style="font-weight:700;">Availability</legend>
-          <label><input type="checkbox" name="availability" value="morning"> Mornings</label><br>
-          <label><input type="checkbox" name="availability" value="afternoon"> Afternoons</label><br>
-          <label><input type="checkbox" name="availability" value="evening"> Evenings</label>
-        </fieldset>
-
-        <div class="field">
-          <label for="experience">Tell us about your experience</label>
-          <textarea id="experience" name="experience" placeholder="Coffee skills, customer service, etc." required></textarea>
-        </div>
-
-        <input type="submit" value="Submit Application">
-      </form>
-      <p class="note">Form includes text, email, date, select, checkboxes, and a textarea as required in the case study’s forms chapter.</p>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; <span id="yr"></span> JavaJam Coffee Bar</small>
-  </footer>
-</div>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-</body>
+    </main>
+    <footer>
+      <p>&copy; JavaJam Coffee Bar • <a href="mailto:you@example.com">you@example.com</a></p>
+      <p id="dateupdate"></p>
+      <script src="js/dateupdate.js"></script>
+    </footer>
+  </body>
 </html>

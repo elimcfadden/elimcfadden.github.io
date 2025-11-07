@@ -1,43 +1,38 @@
-
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JavaJam Coffee Bar</title>
-  <link rel="stylesheet" href="javajam.css">
-</head>
-<body>
-<div class="wrapper">
-  <header class="site-header">
-    <h1>JavaJam Coffee Bar</h1>
-    <p>Friendly folks • Fresh beans • Chill vibes</p>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JavaJam Coffee Bar — Home</title>
+    <meta name="description" content="JavaJam Coffee Bar — Assignment 9 (JavaScript)">
+    <link href="javajam.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">JavaJam Coffee Bar</a></h1>
+    </header>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+      </ul>
+    </nav>
+    <div class="hero" style="background-image:url('images/hero.jpg')"></div>
+    <main>
+      
+  <section class="card">
+    <h2>Welcome to JavaJam</h2>
+    <p>Follow the winding road to great coffee, friendly faces, and live music on the first Friday of every month.</p>
+    <p>We roast in-house and pour with care. See our <a href="menu.html">menu</a> and catch a show on <a href="music.html">Music Night</a>.</p>
+  </section>
 
-  <nav aria-label="Primary">
-    <ul>
-      <li><a href="index.html" aria-current="page">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <div class="hero"><h2>Welcome in!</h2></div>
-    <section class="card">
-      <h3>About JavaJam</h3>
-      <p>Drop by for carefully brewed coffee, locally baked treats, and live music nights. We keep the atmosphere cozy so you can relax, study, or chat with friends.</p>
-      <p class="note">Open daily 6am–9pm • 123 Bean Street • (555)‑555‑1212</p>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; <span id="yr"></span> JavaJam Coffee Bar</small>
-  </footer>
-</div>
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
-</body>
+    </main>
+    <footer>
+      <p>&copy; JavaJam Coffee Bar • <a href="mailto:you@example.com">you@example.com</a></p>
+      <p id="dateupdate"></p>
+      <script src="js/dateupdate.js"></script>
+    </footer>
+  </body>
 </html>
