@@ -104,6 +104,29 @@ header {
     flex-wrap: wrap;
 }
 
+/* Home page: unified header + hero background */
+body#home .home-hero-shell {
+    background-image: url("../images/shattered-glass-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70vh;
+    position: relative;
+    z-index: 0;
+}
+
+body#home header {
+    background: none;
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+}
+
+body#home #hero {
+    position: relative;
+    z-index: 1;
+}
+
 .site-header {
     display: flex;
     flex-direction: column;
@@ -118,6 +141,43 @@ header {
     color: #2c3e50;
     margin: 0;
     font-size: 1.8rem;
+}
+
+/* Home page: dark text on image background */
+body#home header .site-logo h1 {
+    color: #111111;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+body#home header nav a {
+    color: #111111;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+body#home header nav a:hover {
+    color: #2c3e50;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+body#home header nav a.current {
+    background-color: rgba(52, 152, 219, 0.9);
+    color: #fff;
+    text-shadow: none;
+}
+
+body#home header nav a.current:hover {
+    background-color: rgba(41, 128, 185, 0.9);
+    color: #fff;
+}
+
+body#home header .dark-mode-toggle {
+    background-color: rgba(52, 73, 94, 0.9);
+    color: #fff;
+    text-shadow: none;
+}
+
+body#home header .dark-mode-toggle:hover {
+    background-color: rgba(44, 62, 80, 0.9);
 }
 
 .tagline {
@@ -195,17 +255,12 @@ section {
     margin-bottom: 3rem;
 }
 
-/* Home page hero background image */
+/* Home page hero - background removed, now handled by .home-hero-shell */
 body#home #hero {
-    background-image:
-        linear-gradient(to bottom right, rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.35)),
-        url("../images/shattered-glass-hero.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #f9fafb;
+    background: none;
+    color: #111111;
     padding: 3rem 5vw 4rem;
-    border-radius: 0 0 1.5rem 1.5rem;
+    border-radius: 0;
 }
 
 .hero-content {
@@ -222,10 +277,11 @@ body#home #hero {
 /* Make sure hero text sits nicely in a box on top of the image */
 body#home #hero .hero-text-content {
     max-width: 32rem;
-    background: rgba(15, 23, 42, 0.7);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(3px);
     padding: 1.5rem;
     border-radius: 1rem;
-    border: 1px solid rgba(148, 163, 184, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 #hero h2 {
@@ -235,7 +291,7 @@ body#home #hero .hero-text-content {
 }
 
 body#home #hero h2 {
-    color: #f9fafb;
+    color: #111111;
 }
 
 .hero-subtitle {
@@ -245,7 +301,11 @@ body#home #hero h2 {
 }
 
 body#home #hero .hero-subtitle {
-    color: #f9fafb;
+    color: #2c3e50;
+}
+
+body#home #hero .hero-text {
+    color: #2c3e50;
 }
 
 .hero-image-container {
@@ -992,6 +1052,61 @@ body.dark-mode header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
+/* Home page: keep background image in dark mode, only adjust text */
+body.dark-mode#home .home-hero-shell {
+    background-image: url("../images/shattered-glass-hero.jpg");
+    /* No brightness/contrast filters - image stays the same */
+}
+
+body.dark-mode#home header {
+    background: none;
+    box-shadow: none;
+}
+
+body.dark-mode#home header .site-logo h1 {
+    color: #f9fafb;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode#home header nav a {
+    color: #f9fafb;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode#home header nav a:hover {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+body.dark-mode#home header nav a.current {
+    background-color: rgba(52, 152, 219, 0.9);
+    color: #fff;
+    text-shadow: none;
+}
+
+body.dark-mode#home header .dark-mode-toggle {
+    background-color: rgba(243, 156, 18, 0.9);
+    color: #fff;
+    text-shadow: none;
+}
+
+body.dark-mode#home #hero h2 {
+    color: #f9fafb;
+}
+
+body.dark-mode#home #hero .hero-subtitle {
+    color: #e0e0e0;
+}
+
+body.dark-mode#home #hero .hero-text {
+    color: #e0e0e0;
+}
+
+body.dark-mode#home #hero .hero-text-content {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
 body.dark-mode .site-logo h1 {
     color: #fff;
 }
@@ -1140,14 +1255,31 @@ body.dark-mode .dark-mode-toggle:hover {
         padding: 2rem 1rem;
     }
 
+    body#home #hero {
+        padding: 2rem 1rem 3rem;
+    }
+
+    body#home .home-hero-shell {
+        min-height: 60vh;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
     }
 
+    body#home .hero-content {
+        text-align: left;
+    }
+
     .hero-text-content {
         text-align: center;
+    }
+
+    body#home .hero-text-content {
+        text-align: left;
+        max-width: 100%;
     }
 
     #hero h2 {
