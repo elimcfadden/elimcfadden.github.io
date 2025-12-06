@@ -141,6 +141,61 @@ body#three-point-article header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Non-home pages: white header text */
+body#visualizations header .site-logo h1,
+body#about header .site-logo h1,
+body#three-point-article header .site-logo h1 {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+body#visualizations header nav a,
+body#visualizations header nav a:visited,
+body#about header nav a,
+body#about header nav a:visited,
+body#three-point-article header nav a,
+body#three-point-article header nav a:visited {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+body#visualizations header nav a:hover,
+body#about header nav a:hover,
+body#three-point-article header nav a:hover {
+    color: #f0f0f0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+body#visualizations header nav a.current,
+body#about header nav a.current,
+body#three-point-article header nav a.current {
+    background-color: rgba(52, 152, 219, 0.9);
+    color: #ffffff;
+    text-shadow: none;
+}
+
+body#visualizations header nav a.current:hover,
+body#about header nav a.current:hover,
+body#three-point-article header nav a.current:hover {
+    background-color: rgba(41, 128, 185, 0.9);
+    color: #ffffff;
+}
+
+body#visualizations header .dark-mode-toggle,
+body#about header .dark-mode-toggle,
+body#three-point-article header .dark-mode-toggle {
+    background-color: rgba(52, 73, 94, 0.9);
+    color: #ffffff;
+    text-shadow: none;
+}
+
+body#visualizations header .dark-mode-toggle:hover,
+body#about header .dark-mode-toggle:hover,
+body#three-point-article header .dark-mode-toggle:hover {
+    background-color: rgba(44, 62, 80, 0.9);
+    color: #ffffff;
+}
+
 .site-header {
     display: flex;
     flex-direction: column;
