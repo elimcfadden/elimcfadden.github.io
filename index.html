@@ -35,7 +35,6 @@
         <nav>
             <ul>
                 <li><a href="index.html" class="current">Home</a></li>
-                <li><a href="articles.html">Articles</a></li>
                 <li><a href="visualizations.html">Visualizations</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
@@ -58,42 +57,41 @@
             </div>
         </section>
 
-        <section id="articles">
+        <section id="featured-articles">
             <h2>Featured Articles</h2>
             <div class="article-grid">
                 <article class="card">
-                    <div class="card-image-placeholder">
-                        [IMAGE PLACEHOLDER]
-                    </div>
+                    <img src="images/curry-article-thumb.jpg"
+                         alt="Placeholder thumbnail image for Steph Curry article"
+                         class="card-thumbnail">
                     <div class="card-content">
                         <h3>[ARTICLE TITLE PLACEHOLDER]</h3>
                         <p>[ARTICLE TEASER TEXT PLACEHOLDER]</p>
-                        <a href="#" class="read-more">[READ MORE LINK PLACEHOLDER]</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-image-placeholder">
-                        [IMAGE PLACEHOLDER]
-                    </div>
-                    <div class="card-content">
-                        <h3>[ARTICLE TITLE PLACEHOLDER]</h3>
-                        <p>[ARTICLE TEASER TEXT PLACEHOLDER]</p>
-                        <a href="#" class="read-more">[READ MORE LINK PLACEHOLDER]</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-image-placeholder">
-                        [IMAGE PLACEHOLDER]
-                    </div>
-                    <div class="card-content">
-                        <h3>[ARTICLE TITLE PLACEHOLDER]</h3>
-                        <p>[ARTICLE TEASER TEXT PLACEHOLDER]</p>
-                        <a href="#" class="read-more">[READ MORE LINK PLACEHOLDER]</a>
+                        <a href="#featured-article-curry" class="card-link button primary">Read Article</a>
                     </div>
                 </article>
             </div>
+        </section>
+
+        <section id="featured-article-curry" class="article-section">
+            <h2>[FEATURED ARTICLE TITLE PLACEHOLDER]</h2>
+            <p>[ARTICLE BODY TEXT PLACEHOLDER]</p>
+            <p>[ARTICLE BODY TEXT PLACEHOLDER - CONTINUED]</p>
+
+            <section class="article-embed">
+                <h3>Featured Clip</h3>
+                <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Steph Curry tonight<br><br>34 points<br>9 threes<br>Carried Team USA to the win 🐐 <a href="https://t.co/nFdxnrwDit">pic.twitter.com/nFdxnrwDit</a></p>&mdash; Steph Curry Muse (@StephMuse_) <a href="https://twitter.com/StephMuse_/status/1821649830021599482?ref_src=twsrc%5Etfw">August 8, 2024</a></blockquote>
+            </section>
+
+            <section class="article-viz">
+                <h3>Three-Point Attempts and Makes Over Time</h3>
+                <p>[SHORT ARTICLE TEXT PLACEHOLDER ABOUT THE 3PT VIZ]</p>
+                <figure class="viz-figure">
+                    <img src="images/3pt_viz.png"
+                         alt="Line chart showing three-point attempts and makes over the years">
+                    <figcaption>[3PT VIZ CAPTION PLACEHOLDER]</figcaption>
+                </figure>
+            </section>
         </section>
 
         <section id="cta">
@@ -109,6 +107,7 @@
         <p>Contact: <a href="about.html">About Page</a></p>
     </footer>
 
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
