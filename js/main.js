@@ -1,5 +1,5 @@
 /* ============================================
-   Eli Sports Analytics - Main JavaScript
+   Shattered Glass Analytics - Main JavaScript
    ============================================ */
 
 // Wait for DOM to be fully loaded
