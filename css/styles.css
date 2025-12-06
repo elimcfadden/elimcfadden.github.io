@@ -214,18 +214,18 @@ body#three-point-article header .dark-mode-toggle:hover {
 
 /* Home page: dark text on image background */
 body#home header .site-logo h1 {
-    color: #111111;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 body#home header nav a {
-    color: #111111;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 body#home header nav a:hover {
-    color: #2c3e50;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    color: #f0f0f0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 body#home header nav a.current {
