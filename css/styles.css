@@ -315,6 +315,15 @@ section {
     object-fit: cover;
 }
 
+.card-thumb {
+    display: block;
+    max-width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
 .card-content {
     padding: 1.5rem;
 }
@@ -537,6 +546,12 @@ table tbody tr:last-child td {
     margin: 0;
 }
 
+.coming-soon-layout {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 5vw 3rem;
+}
+
 /* Responsive stacking for article layout */
 @media (max-width: 900px) {
     .article-layout {
@@ -550,6 +565,10 @@ table tbody tr:last-child td {
 
     .article-content h1 {
         font-size: 2rem;
+    }
+
+    .coming-soon-layout {
+        padding: 2rem 1rem 3rem;
     }
 }
 
