@@ -1,5 +1,5 @@
 /* ============================================
-   Shattered Glass Analytics - Main Stylesheet
+   Shattered Backboard Analytics - Main Stylesheet
    ============================================ */
 
 /* ============================================
@@ -277,11 +277,16 @@ body#home #hero {
 /* Make sure hero text sits nicely in a box on top of the image */
 body#home #hero .hero-text-content {
     max-width: 32rem;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(3px);
-    padding: 1.5rem;
-    border-radius: 1rem;
+    background-image:
+        linear-gradient(to bottom right, rgba(5, 10, 25, 0.80), rgba(5, 10, 25, 0.55)),
+        url("../images/raymond-petrik-BXNe9EF35DE-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 1.75rem 2rem;
+    border-radius: 1.5rem;
     border: 1px solid rgba(148, 163, 184, 0.3);
+    color: #f9fafb;
 }
 
 #hero h2 {
@@ -291,7 +296,7 @@ body#home #hero .hero-text-content {
 }
 
 body#home #hero h2 {
-    color: #111111;
+    color: #f9fafb;
 }
 
 .hero-subtitle {
@@ -301,11 +306,11 @@ body#home #hero h2 {
 }
 
 body#home #hero .hero-subtitle {
-    color: #2c3e50;
+    color: #f9fafb;
 }
 
 body#home #hero .hero-text {
-    color: #2c3e50;
+    color: #f9fafb;
 }
 
 .hero-image-container {
@@ -1103,7 +1108,12 @@ body.dark-mode#home #hero .hero-text {
 }
 
 body.dark-mode#home #hero .hero-text-content {
-    background: rgba(15, 23, 42, 0.7);
+    background-image:
+        linear-gradient(to bottom right, rgba(5, 10, 25, 0.80), rgba(5, 10, 25, 0.55)),
+        url("../images/raymond-petrik-BXNe9EF35DE-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: 1px solid rgba(148, 163, 184, 0.3);
 }
 

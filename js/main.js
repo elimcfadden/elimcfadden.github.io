@@ -1,5 +1,5 @@
 /* ============================================
-   Shattered Glass Analytics - Main JavaScript
+   Shattered Backboard Analytics - Main JavaScript
    ============================================ */
 
 // Wait for DOM to be fully loaded
