@@ -190,6 +190,19 @@ section {
     margin-bottom: 3rem;
 }
 
+/* Home page hero background image */
+body#home #hero {
+    background-image:
+        linear-gradient(to bottom right, rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.35)),
+        url("../images/broken-backboard-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f9fafb;
+    padding: 3rem 5vw 4rem;
+    border-radius: 0 0 1.5rem 1.5rem;
+}
+
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -201,10 +214,23 @@ section {
     text-align: left;
 }
 
+/* Make sure hero text sits nicely in a box on top of the image */
+body#home #hero .hero-text-content {
+    max-width: 32rem;
+    background: rgba(15, 23, 42, 0.7);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
 #hero h2 {
     color: #fff;
     font-size: 2.5rem;
     margin-bottom: 1rem;
+}
+
+body#home #hero h2 {
+    color: #f9fafb;
 }
 
 .hero-subtitle {
@@ -213,10 +239,19 @@ section {
     opacity: 0.95;
 }
 
+body#home #hero .hero-subtitle {
+    color: #f9fafb;
+}
+
 .hero-image-container {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* If there is a .hero-image column, let it just act as empty space or hide it on mobile */
+body#home #hero .hero-image-container {
+    /* keep it for layout on desktop, but it no longer needs a background or img */
 }
 
 .hero-image {
@@ -230,6 +265,25 @@ section {
     font-size: 1.1rem;
     margin: 1.5rem 0;
     opacity: 0.95;
+}
+
+body#home #hero .hero-text {
+    color: #f9fafb;
+}
+
+/* Responsive tweak: stack hero-text on small screens */
+@media (max-width: 900px) {
+    body#home #hero .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    body#home #hero .hero-text-content {
+        max-width: 100%;
+    }
+
+    body#home #hero .hero-image-container {
+        display: none;
+    }
 }
 
 .hero-image-placeholder {
