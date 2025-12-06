@@ -127,6 +127,20 @@ body#home #hero {
     z-index: 1;
 }
 
+/* Non-home pages: header with shattered-glass background (no white overlay) */
+body#visualizations header,
+body#about header,
+body#three-point-article header {
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
+        url("../images/shattered-glass-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 .site-header {
     display: flex;
     flex-direction: column;
