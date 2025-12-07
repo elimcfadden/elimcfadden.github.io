@@ -81,5 +81,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ============================================
+    // Visualization Modal/Lightbox
+    // ============================================
+    
+    const modal = document.getElementById('viz-modal');
+    const modalImage = document.getElementById('viz-modal-image');
+    const modalCaption = document.getElementById('viz-modal-caption');
+    const closeButton = document.querySelector('.viz-modal-close');
+    const backdrop = document.querySelector('.viz-modal-backdrop');
+    const vizImages = document.querySelectorAll('.viz-image');
+    
+    if (modal && modalImage && modalCaption && closeButton && backdrop) {
+        function openModal(img) {
+            modalImage.src = img.src;
+            modalImage.alt = img.alt || '';
+            modalCaption.textContent = img.alt || '';
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+        }
+        
+        function closeModal() {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            modalImage.src = '';
+            modalImage.alt = '';
+            modalCaption.textContent = '';
+        }
+        
+        vizImages.forEach((img) => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => openModal(img));
+        });
+        
+        closeButton.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+        
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                closeModal();
+            }
+        });
+    }
+    
 });
 

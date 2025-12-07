@@ -1419,6 +1419,78 @@ body.dark-mode .dark-mode-toggle:hover {
     }
 }
 
+/* ============================================
+   Visualization Modal/Lightbox
+   ============================================ */
+
+.viz-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.viz-modal.is-open {
+    display: flex;
+}
+
+.viz-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.75);
+}
+
+.viz-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    background: #0b1120;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.viz-modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    display: block;
+    border-radius: 0.75rem;
+}
+
+.viz-modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    border: none;
+    background: transparent;
+    font-size: 1.6rem;
+    color: #e5e7eb;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.viz-modal-close:hover {
+    color: #fff;
+}
+
+.viz-modal-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+    text-align: center;
+}
+
 @media screen and (max-width: 480px) {
     .site-logo h1 {
         font-size: 1.5rem;

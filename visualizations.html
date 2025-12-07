@@ -80,7 +80,8 @@
                 <div id="attendance-viz" class="viz-card card">
                     <figure class="viz-figure">
                         <img src="images/avghomeattendance_viz.png"
-                             alt="Bar chart showing average home attendance by NBA team from 2001 to 2017">
+                             alt="Bar chart showing average home attendance by NBA team from 2001 to 2017"
+                             class="viz-image">
                         <figcaption>Average Home Attendance by Team</figcaption>
                     </figure>
                     <div class="card-content">
@@ -92,7 +93,8 @@
                 <div id="pace-viz" class="viz-card card">
                     <figure class="viz-figure">
                         <img src="images/offensiveratingvspacev_viz.png"
-                             alt="Line chart showing offensive rating and pace over seasons, highlighting their correlation">
+                             alt="Line chart showing offensive rating and pace over seasons, highlighting their correlation"
+                             class="viz-image">
                         <figcaption>Offensive Rating vs Pace</figcaption>
                     </figure>
                     <div class="card-content">
@@ -110,6 +112,16 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <!-- Visualization Modal/Lightbox -->
+    <div id="viz-modal" class="viz-modal" aria-hidden="true">
+        <div class="viz-modal-backdrop"></div>
+        <div class="viz-modal-content">
+            <button class="viz-modal-close" aria-label="Close visualization">&times;</button>
+            <img src="" alt="" id="viz-modal-image">
+            <p id="viz-modal-caption"></p>
+        </div>
+    </div>
 </body>
 </html>
 
