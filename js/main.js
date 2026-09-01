@@ -1,128 +1,148 @@
-/* ============================================
-   Shattered Backboard Analytics - Main JavaScript
-   ============================================ */
+/* ==========================================================================
+   Shattered Backboard Analytics — site behaviour
+   Theme toggle, mobile nav, reading progress, chart lightbox, scroll reveal.
+   The initial theme class is set by the inline script in each page <head>
+   so there is no flash before this file runs.
+   ========================================================================== */
 
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ============================================
-    // Dark Mode Toggle
-    // ============================================
-    
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-    
-    // Check for saved dark mode preference or default to light mode
-    const darkMode = localStorage.getItem('darkMode') === 'enabled';
-    
-    if (darkMode) {
-        body.classList.add('dark-mode');
-        darkModeToggle.textContent = '☀️';
+document.addEventListener('DOMContentLoaded', function () {
+    var body = document.body;
+    var root = document.documentElement;
+
+    /* ----------------------------------------------------------------------
+       Theme toggle — dark is the default, light is the stored opt-in
+       ---------------------------------------------------------------------- */
+
+    var themeToggle = document.querySelector('.theme-toggle');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            var light = root.classList.toggle('light-mode');
+            themeToggle.setAttribute('aria-pressed', String(light));
+            try {
+                localStorage.setItem('theme', light ? 'light' : 'dark');
+            } catch (e) {
+                /* storage blocked — the toggle still works for this page view */
+            }
+        });
+
+        themeToggle.setAttribute('aria-pressed', String(root.classList.contains('light-mode')));
     }
-    
-    // Toggle dark mode when button is clicked
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', function() {
-            body.classList.toggle('dark-mode');
-            
-            // Save preference to localStorage
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                darkModeToggle.textContent = '☀️';
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-                darkModeToggle.textContent = '🌙';
+
+    /* ----------------------------------------------------------------------
+       Mobile navigation
+       ---------------------------------------------------------------------- */
+
+    var navToggle = document.querySelector('.nav-toggle');
+    var navLinks = document.querySelector('.nav-links');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function () {
+            var open = navLinks.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', String(open));
+        });
+
+        navLinks.addEventListener('click', function (event) {
+            if (event.target.closest('a')) {
+                navLinks.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }
-    
-    // ============================================
-    // Contact Form Handling
-    // ============================================
-    
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    
-    if (contactForm && formStatus) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
-            
-            // Get form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const topic = document.getElementById('topic').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            // Basic validation
-            if (!name || !email || !topic || !message) {
-                formStatus.textContent = 'Please fill in all fields.';
-                formStatus.className = 'form-status error';
-                return;
+
+    /* ----------------------------------------------------------------------
+       Reading progress bar (article pages only)
+       ---------------------------------------------------------------------- */
+
+    var progress = document.querySelector('.read-progress');
+    var articleBody = document.querySelector('.article-body');
+
+    if (progress && articleBody) {
+        var updateProgress = function () {
+            var rect = articleBody.getBoundingClientRect();
+            var total = rect.height - window.innerHeight;
+            var pct = total <= 0 ? 1 : (-rect.top) / total;
+            progress.style.width = Math.min(100, Math.max(0, pct * 100)) + '%';
+        };
+
+        updateProgress();
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+    }
+
+    /* ----------------------------------------------------------------------
+       Chart lightbox — any image marked data-zoom opens full size
+       ---------------------------------------------------------------------- */
+
+    var lightbox = document.querySelector('.lightbox');
+
+    if (lightbox) {
+        var lightboxImage = lightbox.querySelector('img');
+        var lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        var lastFocused = null;
+
+        var openLightbox = function (img) {
+            lastFocused = document.activeElement;
+            lightboxImage.src = img.currentSrc || img.src;
+            lightboxImage.alt = img.alt || '';
+            lightboxCaption.textContent = img.getAttribute('data-caption') || img.alt || '';
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            body.classList.add('no-scroll');
+            lightbox.querySelector('.lightbox-close').focus();
+        };
+
+        var closeLightbox = function () {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            body.classList.remove('no-scroll');
+            lightboxImage.removeAttribute('src');
+            lightboxCaption.textContent = '';
+            if (lastFocused) { lastFocused.focus(); }
+        };
+
+        document.querySelectorAll('img[data-zoom]').forEach(function (img) {
+            img.addEventListener('click', function () { openLightbox(img); });
+        });
+
+        lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                closeLightbox();
             }
-            
-            // Email validation (basic)
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                formStatus.textContent = 'Please enter a valid email address.';
-                formStatus.className = 'form-status error';
-                return;
-            }
-            
-            // Simulate form submission (in a real app, this would send to a server)
-            formStatus.textContent = 'Thank you for your message! Your form has been submitted successfully. (This is a placeholder - form submission is not actually processed.)';
-            formStatus.className = 'form-status success';
-            
-            // Reset form after 3 seconds
-            setTimeout(function() {
-                contactForm.reset();
-                formStatus.textContent = '[FORM STATUS MESSAGE PLACEHOLDER]';
-                formStatus.className = 'form-status';
-            }, 5000);
         });
     }
-    
-    // ============================================
-    // Visualization Modal/Lightbox
-    // ============================================
-    
-    const modal = document.getElementById('viz-modal');
-    const modalImage = document.getElementById('viz-modal-image');
-    const modalCaption = document.getElementById('viz-modal-caption');
-    const closeButton = document.querySelector('.viz-modal-close');
-    const backdrop = document.querySelector('.viz-modal-backdrop');
-    const vizImages = document.querySelectorAll('.viz-image');
-    
-    if (modal && modalImage && modalCaption && closeButton && backdrop) {
-        function openModal(img) {
-            modalImage.src = img.src;
-            modalImage.alt = img.alt || '';
-            modalCaption.textContent = img.alt || '';
-            modal.classList.add('is-open');
-            modal.setAttribute('aria-hidden', 'false');
+
+    /* ----------------------------------------------------------------------
+       Scroll reveal
+       ---------------------------------------------------------------------- */
+
+    var revealTargets = document.querySelectorAll('.reveal');
+
+    if (revealTargets.length) {
+        if (!('IntersectionObserver' in window)) {
+            revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
+        } else {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+            revealTargets.forEach(function (el) { observer.observe(el); });
         }
-        
-        function closeModal() {
-            modal.classList.remove('is-open');
-            modal.setAttribute('aria-hidden', 'true');
-            modalImage.src = '';
-            modalImage.alt = '';
-            modalCaption.textContent = '';
-        }
-        
-        vizImages.forEach((img) => {
-            img.style.cursor = 'zoom-in';
-            img.addEventListener('click', () => openModal(img));
-        });
-        
-        closeButton.addEventListener('click', closeModal);
-        backdrop.addEventListener('click', closeModal);
-        
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && modal.classList.contains('is-open')) {
-                closeModal();
-            }
-        });
     }
-    
+
+    /* ----------------------------------------------------------------------
+       Footer year
+       ---------------------------------------------------------------------- */
+
+    document.querySelectorAll('[data-year]').forEach(function (el) {
+        el.textContent = String(new Date().getFullYear());
+    });
 });
-

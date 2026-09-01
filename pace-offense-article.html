@@ -2,51 +2,144 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Eli McFadden">
-    <meta name="description" content="[Coming soon article description placeholder]">
-    <meta name="keywords" content="[KEYWORDS PLACEHOLDER]">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pace and Offense Article Coming Soon | Shattered Backboard Analytics</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="author" content="Eli McFadden">
+    <meta name="description" content="In progress: comparing NBA pace against offensive rating across seasons, and finding where the two actually separate.">
+    <meta name="keywords" content="NBA pace, offensive rating, team performance, basketball analytics">
+    <title>Pace and offensive rating do not move the way you think &mdash; Shattered Backboard Analytics</title>
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <!-- Google Analytics placeholder — replace with real GA code -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Applies the stored theme before first paint so there is no flash. -->
     <script>
-        // [GOOGLE ANALYTICS PLACEHOLDER SCRIPT]
-        // Replace this with your actual Google Analytics tracking code
+        try {
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.add('light-mode');
+            }
+        } catch (e) {}
     </script>
 </head>
-<body id="coming-soon-pace-offense">
-    <header>
-        <div class="site-header">
-            <a href="index.html" class="site-logo">
-                <h1>Shattered Backboard Analytics</h1>
+<body id="pace-offense-article">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html">
+                <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14.5" rx="1.5"></rect>
+                    <path d="M9.5 9h5v4.5h-5z"></path>
+                    <path d="M9.5 3 7 7l3.5 1.6L6 12l3 2.5-1.5 3"></path>
+                    <path d="M22 6.5l-4 1.7 2 2.3-2.5 1.5"></path>
+                    <path d="M12 17.5v3.5"></path>
+                </svg>
+                <span class="brand-name">Shattered Backboard <span class="thin">Analytics</span></span>
             </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="current">Home</a></li>
-                <li><a href="visualizations.html">Visualizations</a></li>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="articles.html" class="current" aria-current="page">Articles</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
-        </nav>
-        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+
+            <div class="header-actions">
+                <button class="icon-button theme-toggle" type="button" aria-label="Toggle light and dark theme">
+                    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+                    </svg>
+                    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+                    </svg>
+                </button>
+
+                <button class="icon-button nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main class="article-layout coming-soon-layout">
-        <article class="article-content">
-            <h1>Article Coming Soon</h1>
-            <p>[This article is still in progress. Check back soon for a deeper look at pace and offensive efficiency.]</p>
-        </article>
+    <main id="main">
+        <div class="wrap stub">
+            <span class="eyebrow">Team performance &middot; In progress</span>
+            <h1>Pace and offensive rating do not move the way you think</h1>
+            <p>Playing fast and scoring efficiently get treated as the same thing. Season by season, they separate more often than that story allows.</p>
+            <p>The chart below is finished. The article that goes with it is not &mdash; pieces only get published here once the analysis actually holds up.</p>
+
+            <figure class="stub-preview">
+                <div class="chart-head">
+                    <h3>Offensive rating vs pace</h3>
+                    <span class="eyebrow plain">Draft</span>
+                </div>
+                <div class="chart-plot">
+                    <img src="images/offensiveratingvspacev_viz.png"
+                         alt="Line chart showing offensive rating and pace across seasons and how they track together"
+                         data-zoom
+                         data-caption="Offensive rating vs pace"
+                         width="1146" height="854">
+                </div>
+                <figcaption>Offensive rating plotted against pace across seasons.</figcaption>
+            </figure>
+
+            <div class="stub-actions">
+                <a class="button primary" href="three-point-article.html">Read the latest article <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="button ghost" href="articles.html">Back to all articles</a>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Shattered Backboard Analytics. All rights reserved.</p>
-        <p>Contact: <a href="about.html">About Page</a></p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-name">Shattered Backboard <span class="thin">Analytics</span></span>
+                    <p>NBA writing backed by the numbers. Built and maintained by Eli McFadden.</p>
+                </div>
+
+                <nav class="footer-nav" aria-label="Footer">
+                    <div class="footer-col">
+                        <h4>Site</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="articles.html">Articles</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Writing</h4>
+                        <ul>
+                            <li><a href="three-point-article.html">Three-point shooting</a></li>
+                            <li><a href="attendance-article.html">Home attendance</a></li>
+                            <li><a href="pace-offense-article.html">Pace and offense</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; <span data-year>2025</span> Shattered Backboard Analytics</span>
+                <a href="mailto:eli.bball3@gmail.com">eli.bball3@gmail.com</a>
+            </div>
+        </div>
     </footer>
+
+    <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Enlarged chart">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-panel">
+            <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+            <img src="" alt="">
+            <p class="lightbox-caption"></p>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
 </html>
-

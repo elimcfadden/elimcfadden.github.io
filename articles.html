@@ -2,75 +2,182 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Eli McFadden">
-    <meta name="description" content="Read articles about basketball analytics, three-point shooting trends, and data-driven insights.">
-    <meta name="keywords" content="basketball articles, three-point shooting, NBA analytics, Steph Curry, sports analysis">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles - Shattered Backboard Analytics</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="author" content="Eli McFadden">
+    <meta name="description" content="Every article from Shattered Backboard Analytics, including three-point shooting trends, home attendance, and pace versus offensive rating.">
+    <meta name="keywords" content="NBA articles, basketball analytics, three-point shooting, attendance, pace, offensive rating">
+    <title>Articles &mdash; Shattered Backboard Analytics</title>
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <!-- Google Analytics placeholder — replace with real GA code -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Applies the stored theme before first paint so there is no flash. -->
     <script>
-        // [GOOGLE ANALYTICS PLACEHOLDER SCRIPT]
-        // Replace this with your actual Google Analytics tracking code
+        try {
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.add('light-mode');
+            }
+        } catch (e) {}
     </script>
 </head>
 <body id="articles">
-    <header>
-        <div class="site-header">
-            <a href="index.html" class="site-logo">
-                <h1>Shattered Backboard Analytics</h1>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html">
+                <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14.5" rx="1.5"></rect>
+                    <path d="M9.5 9h5v4.5h-5z"></path>
+                    <path d="M9.5 3 7 7l3.5 1.6L6 12l3 2.5-1.5 3"></path>
+                    <path d="M22 6.5l-4 1.7 2 2.3-2.5 1.5"></path>
+                    <path d="M12 17.5v3.5"></path>
+                </svg>
+                <span class="brand-name">Shattered Backboard <span class="thin">Analytics</span></span>
             </a>
-        </div>
-        <nav>
-            <ul>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="articles.html" class="current">Articles</a></li>
-                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="articles.html" class="current" aria-current="page">Articles</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
-        </nav>
-        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+
+            <div class="header-actions">
+                <button class="icon-button theme-toggle" type="button" aria-label="Toggle light and dark theme">
+                    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+                    </svg>
+                    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+                    </svg>
+                </button>
+
+                <button class="icon-button nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <article class="feature-article">
-            <header class="article-header">
-                <h1>Three-Point Revolution [TITLE PLACEHOLDER]</h1>
-            </header>
-
-            <div class="article-body">
-                <p>[ARTICLE BODY TEXT PLACEHOLDER]</p>
-                <p>[ARTICLE BODY TEXT PLACEHOLDER - CONTINUED]</p>
-
-                <section id="featured-post">
-                    <h2>Featured Clip</h2>
-                    <!-- X/Twitter embed -->
-                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Steph Curry tonight<br><br>34 points<br>9 threes<br>Carried Team USA to the win 🐐 <a href="https://t.co/nFdxnrwDit">pic.twitter.com/nFdxnrwDit</a></p>&mdash; Steph Curry Muse (@StephMuse_) <a href="https://twitter.com/StephMuse_/status/1821649830021599482?ref_src=twsrc%5Etfw">August 8, 2024</a></blockquote>
-                </section>
-
-                <section id="three-point-viz">
-                    <h2>Three-Point Attempts and Makes Over Time</h2>
-                    <p>[SHORT ARTICLE TEXT PLACEHOLDER ABOUT THE 3PT VIZ]</p>
-                    <figure class="viz-figure">
-                        <img src="images/3pt_viz.png"
-                             alt="Line chart showing three-point attempts and makes over the years">
-                        <figcaption>Clear spike in three-point attempts following Steph Curry's first All-Star appearance.</figcaption>
-                    </figure>
-                </section>
+    <main id="main">
+        <section class="page-hero">
+            <div class="wrap">
+                <span class="eyebrow">The index</span>
+                <h1>Articles</h1>
+                <p>Everything published so far, plus what is on the desk right now. Each piece starts with a chart and argues from there &mdash; if the numbers do not back the take, it does not run.</p>
             </div>
-        </article>
+        </section>
+
+        <section class="section flush">
+            <div class="wrap">
+                <ul class="index-list">
+                    <li class="index-row reveal">
+                        <a href="three-point-article.html">
+                            <div class="index-thumb is-chart">
+                                <img src="images/3pt_viz.png"
+                                     alt="Line chart of league three-point attempts and makes per game by season"
+                                     width="1146" height="854" loading="lazy">
+                            </div>
+                            <div class="index-main">
+                                <span class="tag">Feature</span>
+                                <h3>Three point shooting changed the game, for better and worse</h3>
+                                <p>Spacing was supposed to unlock easier offense. A lot of the league skipped straight to the pull-up instead &mdash; and the chart shows exactly when the shift happened.</p>
+                            </div>
+                            <div class="index-side">
+                                <p class="meta">
+                                    <span class="byline-name">Eli McFadden</span>
+                                    <span class="dot" aria-hidden="true">&middot;</span>
+                                    <span>4 min read</span>
+                                </p>
+                                <p class="meta"><span>Three-point shooting</span></p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="index-row is-draft reveal">
+                        <a href="attendance-article.html">
+                            <div class="index-thumb is-chart">
+                                <img src="images/avghomeattendance_viz.png"
+                                     alt="Bar chart of average home attendance by NBA team"
+                                     width="1146" height="854" loading="lazy">
+                            </div>
+                            <div class="index-main">
+                                <span class="tag muted">In progress</span>
+                                <h3>What average home attendance says about a franchise</h3>
+                                <p>Attendance by team from 2001 to 2017 is charted. The write-up that explains which buildings actually fill up, and why, is still being worked on.</p>
+                            </div>
+                            <div class="index-side">
+                                <p class="meta"><span>Draft</span></p>
+                                <p class="meta"><span>Attendance</span></p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="index-row is-draft reveal">
+                        <a href="pace-offense-article.html">
+                            <div class="index-thumb is-chart">
+                                <img src="images/offensiveratingvspacev_viz.png"
+                                     alt="Line chart comparing offensive rating and pace across seasons"
+                                     width="1146" height="854" loading="lazy">
+                            </div>
+                            <div class="index-main">
+                                <span class="tag muted">In progress</span>
+                                <h3>Pace and offensive rating do not move the way you think</h3>
+                                <p>Playing fast and scoring efficiently get treated as the same thing. The chart is built; the argument about where they actually separate is still in progress.</p>
+                            </div>
+                            <div class="index-side">
+                                <p class="meta"><span>Draft</span></p>
+                                <p class="meta"><span>Team performance</span></p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Shattered Backboard Analytics. All rights reserved.</p>
-        <p>Contact: <a href="about.html">About Page</a></p>
-    </footer>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-name">Shattered Backboard <span class="thin">Analytics</span></span>
+                    <p>NBA writing backed by the numbers. Built and maintained by Eli McFadden.</p>
+                </div>
 
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <nav class="footer-nav" aria-label="Footer">
+                    <div class="footer-col">
+                        <h4>Site</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="articles.html">Articles</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Writing</h4>
+                        <ul>
+                            <li><a href="three-point-article.html">Three-point shooting</a></li>
+                            <li><a href="attendance-article.html">Home attendance</a></li>
+                            <li><a href="pace-offense-article.html">Pace and offense</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; <span data-year>2025</span> Shattered Backboard Analytics</span>
+                <a href="mailto:eli.bball3@gmail.com">eli.bball3@gmail.com</a>
+            </div>
+        </div>
+    </footer>
     <script src="js/main.js"></script>
 </body>
 </html>
-

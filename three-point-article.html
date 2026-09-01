@@ -2,82 +2,253 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Eli McFadden">
-    <meta name="description" content="[3PT ARTICLE DESCRIPTION PLACEHOLDER]">
-    <meta name="keywords" content="[KEYWORDS PLACEHOLDER]">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three-Point Revolution | Shattered Backboard Analytics</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="author" content="Eli McFadden">
+    <meta name="description" content="Three-point attempts went nearly vertical after 2012. Spacing was supposed to unlock easier offense, but a lot of the league skipped straight to the pull-up instead.">
+    <meta name="keywords" content="three-point shooting, NBA analytics, Steph Curry, spacing, shot selection, offensive efficiency">
+    <title>Three point shooting changed the game, for better and worse &mdash; Shattered Backboard Analytics</title>
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <!-- Google Analytics placeholder — replace with real GA code -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Applies the stored theme before first paint so there is no flash. -->
     <script>
-        // [GOOGLE ANALYTICS PLACEHOLDER SCRIPT]
-        // Replace this with your actual Google Analytics tracking code
+        try {
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.add('light-mode');
+            }
+        } catch (e) {}
     </script>
 </head>
 <body id="three-point-article">
-    <header>
-        <div class="site-header">
-            <a href="index.html" class="site-logo">
-                <h1>Shattered Backboard Analytics</h1>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html">
+                <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14.5" rx="1.5"></rect>
+                    <path d="M9.5 9h5v4.5h-5z"></path>
+                    <path d="M9.5 3 7 7l3.5 1.6L6 12l3 2.5-1.5 3"></path>
+                    <path d="M22 6.5l-4 1.7 2 2.3-2.5 1.5"></path>
+                    <path d="M12 17.5v3.5"></path>
+                </svg>
+                <span class="brand-name">Shattered Backboard <span class="thin">Analytics</span></span>
             </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="current">Home</a></li>
-                <li><a href="visualizations.html">Visualizations</a></li>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="articles.html" class="current" aria-current="page">Articles</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
-        </nav>
-        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+
+            <div class="header-actions">
+                <button class="icon-button theme-toggle" type="button" aria-label="Toggle light and dark theme">
+                    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+                    </svg>
+                    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+                    </svg>
+                </button>
+
+                <button class="icon-button nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main class="article-layout">
-        <article class="article-content">
-            <h1>Three Point Shooting Changed the Game, For Better and Worse</h1>
-            <p>Three point shooting used to be more of a side dish than the main course. Teams ran their offense to get something at the rim or a clean midrange look, and the three was there if a shooter happened to be open. That started to shift as analytics took hold, but it really exploded once Steph Curry and other perimeter players started taking and making threes at a volume nobody had seen before. After that, the league followed. Attempts from deep went way up, and the three point line became the center of everything.</p>
-            <p>That change reshaped how defenses have to play. You cannot just sit in the paint and protect the rim when half the lineup is spotting up outside. Bigs get pulled away from the basket, help defense has farther to travel, and one mistake can turn into three free points instead of two. Offenses now spread the floor with four or five shooters, and spacing is treated almost like another star player on the court.</p>
-            <p>In theory, that should make the game cleaner. If defenders are stretched out, there should be more cutting, more backdoor layups, and more easy buckets created by simple ball movement. The three point shot should be a threat that opens up better shots everywhere else. When a defense has to respect the arc, driving lanes are wider and kick outs are more dangerous.</p>
-            <p>In practice, a lot of teams skip straight to the three and never really run anything. Instead of using spacing to create high quality looks, possessions often turn into one screen, one pass, and a quick pull up from way behind the line. The basic math that says a good three is worth more than a long two somehow turned into the idea that any half decent three is fine, even if there was a wide open slip to the rim or a simple extra pass available.</p>
-            <p>You can see it in late game situations too. Where teams used to run sets to get something going toward the basket, now the default is often a step back three over a contest. Sometimes it goes in and everyone praises the modern game. A lot of the time it misses, and you are left wondering why nobody tried to generate a layup or force the defense into a real decision.</p>
-            <p>Three point shooting clearly changed the sport. Attempts rose, spacing improved, and the value of shooting jumped with it. The real next step is not to get rid of the three, but to use it the way it should have been used all along, as a way to create easier offense again instead of a shortcut that replaces real ball movement and good shot selection.</p>
+    <div class="read-progress" role="presentation"></div>
+
+    <main id="main">
+        <article>
+            <header class="article-hero">
+                <div class="wrap">
+                    <span class="eyebrow">Three-point shooting</span>
+                    <h1>Three point shooting changed the game, for better and worse</h1>
+                    <p class="dek">Spacing was supposed to unlock easier offense. A lot of the league skipped straight to the pull-up instead.</p>
+                    <p class="meta">
+                        <span class="byline-name">Eli McFadden</span>
+                        <span class="dot" aria-hidden="true">&middot;</span>
+                        <span>Analysis</span>
+                        <span class="dot" aria-hidden="true">&middot;</span>
+                        <span>4 min read</span>
+                    </p>
+                </div>
+            </header>
+
+            <div class="wrap article-layout">
+                <div class="article-body">
+                    <p class="standfirst">Three point shooting used to be more of a side dish than the main course. Teams ran their offense to get something at the rim or a clean midrange look, and the three was there if a shooter happened to be open. That started to shift as analytics took hold, but it really exploded once Steph Curry and other perimeter players started taking and making threes at a volume nobody had seen before. After that, the league followed. Attempts from deep went way up, and the three point line became the center of everything.</p>
+
+                    <figure class="chart">
+                        <div class="chart-head">
+                            <h3>Three-point attempts and makes over the years</h3>
+                            <span class="eyebrow plain">1979&ndash;80 &rarr; 2022&ndash;23</span>
+                        </div>
+                        <div class="chart-plot">
+                            <img src="images/3pt_viz.png"
+                                 alt="Line chart showing three-point attempts and makes per game rising slowly through the 1990s and 2000s, then climbing sharply after 2012"
+                                 data-zoom
+                                 data-caption="Three-point attempts and makes over the years. Attempts per game climb from roughly 2.5 in 1979-80 to 34.2 in 2022-23."
+                                 width="1146" height="854">
+                        </div>
+                        <figcaption>Attempts sat under 20 per game for three decades, then went nearly vertical after Curry's first All-Star appearance in 2012. Makes rose too &mdash; just nowhere near as fast.</figcaption>
+                    </figure>
+
+                    <p>That change reshaped how defenses have to play. You cannot just sit in the paint and protect the rim when half the lineup is spotting up outside. Bigs get pulled away from the basket, help defense has farther to travel, and one mistake can turn into three free points instead of two. Offenses now spread the floor with four or five shooters, and spacing is treated almost like another star player on the court.</p>
+
+                    <h2>What the spacing was supposed to do</h2>
+
+                    <p>In theory, that should make the game cleaner. If defenders are stretched out, there should be more cutting, more backdoor layups, and more easy buckets created by simple ball movement. The three point shot should be a threat that opens up better shots everywhere else. When a defense has to respect the arc, driving lanes are wider and kick outs are more dangerous.</p>
+
+                    <h2>What actually happens</h2>
+
+                    <p>In practice, a lot of teams skip straight to the three and never really run anything. Instead of using spacing to create high quality looks, possessions often turn into one screen, one pass, and a quick pull up from way behind the line. The basic math that says a good three is worth more than a long two somehow turned into the idea that any half decent three is fine, even if there was a wide open slip to the rim or a simple extra pass available.</p>
+
+                    <p class="pull-quote">The math that says a good three beats a long two somehow turned into the idea that any half decent three is fine.</p>
+
+                    <p>You can see it in late game situations too. Where teams used to run sets to get something going toward the basket, now the default is often a step back three over a contest. Sometimes it goes in and everyone praises the modern game. A lot of the time it misses, and you are left wondering why nobody tried to generate a layup or force the defense into a real decision.</p>
+
+                    <h2>Where it goes from here</h2>
+
+                    <p>Three point shooting clearly changed the sport. Attempts rose, spacing improved, and the value of shooting jumped with it. The real next step is not to get rid of the three, but to use it the way it should have been used all along, as a way to create easier offense again instead of a shortcut that replaces real ball movement and good shot selection.</p>
+                </div>
+
+                <aside class="article-rail">
+                    <section class="rail-block">
+                        <h2>The data</h2>
+                        <p class="rail-note">League three-point attempts and makes per game, every season from 1979&ndash;80 through 2022&ndash;23. Built in Tableau. Attempts go from about 2.5 per game to 34.2, peaking at 35.2 in 2021&ndash;22.</p>
+                    </section>
+
+                    <section class="rail-block">
+                        <h2>Featured clip</h2>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">Steph Curry tonight<br><br>34 points<br>9 threes<br>Carried Team USA to the win &#128016;
+                                <a href="https://t.co/nFdxnrwDit">pic.twitter.com/nFdxnrwDit</a>
+                            </p>&mdash; Steph Curry Muse (@StephMuse_)
+                            <a href="https://twitter.com/StephMuse_/status/1821649830021599482?ref_src=twsrc%5Etfw">August 8, 2024</a>
+                        </blockquote>
+                    </section>
+                </aside>
+            </div>
         </article>
 
-        <aside class="article-sidebar">
-            <section class="sidebar-block">
-                <h2>Three Point Viz</h2>
-                <figure>
-                    <img src="images/3pt_viz.png"
-                         alt="Line chart showing three point attempts and makes over the years">
-                    <figcaption>Clear spike in three-point attempts following Steph Curry's first All-Star appearance.</figcaption>
-                </figure>
-            </section>
+        <section class="next-up">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>Next up</h2>
+                    <span class="line" aria-hidden="true"></span>
+                    <a class="section-link" href="articles.html">Full index &rarr;</a>
+                </div>
 
-            <section class="sidebar-block">
-                <h2>Featured Clip</h2>
-                <!-- Embedded X / Twitter post -->
-                <blockquote class="twitter-tweet">
-                    <p lang="en" dir="ltr">Steph Curry tonight<br><br>34 points<br>9 threes<br>Carried Team USA to the win 🐐
-                        <a href="https://t.co/nFdxnrwDit">pic.twitter.com/nFdxnrwDit</a>
-                    </p>&mdash; Steph Curry Muse (@StephMuse_)
-                    <a href="https://twitter.com/StephMuse_/status/1821649830021599482?ref_src=twsrc%5Etfw">
-                        August 8, 2024
-                    </a>
-                </blockquote>
-            </section>
-        </aside>
+                <div class="card-grid">
+                    <article class="card is-draft">
+                        <a href="attendance-article.html">
+                            <div class="card-thumb is-chart">
+                                <img src="images/avghomeattendance_viz.png"
+                                     alt="Bar chart of average home attendance by NBA team"
+                                     width="1146" height="854" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <span class="tag muted">In progress</span>
+                                <h3>What average home attendance says about a franchise</h3>
+                                <p>Attendance by team from 2001 to 2017 is charted. The write-up is still being worked on.</p>
+                                <p class="meta"><span>Draft</span> <span class="dot" aria-hidden="true">&middot;</span> <span>Attendance</span></p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="card is-draft">
+                        <a href="pace-offense-article.html">
+                            <div class="card-thumb is-chart">
+                                <img src="images/offensiveratingvspacev_viz.png"
+                                     alt="Line chart comparing offensive rating and pace across seasons"
+                                     width="1146" height="854" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <span class="tag muted">In progress</span>
+                                <h3>Pace and offensive rating do not move the way you think</h3>
+                                <p>The chart is built; the argument about where they actually separate is still in progress.</p>
+                                <p class="meta"><span>Draft</span> <span class="dot" aria-hidden="true">&middot;</span> <span>Team performance</span></p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <a href="about.html">
+                            <div class="card-thumb">
+                                <img src="images/backboard.jpg"
+                                     alt="A weathered outdoor basketball backboard against a grey sky"
+                                     width="1200" height="1800" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <span class="tag">The project</span>
+                                <h3>How this site gets built, and what is coming next</h3>
+                                <p>The tools behind the charts, and where Shattered Backboard Analytics is headed.</p>
+                                <p class="meta"><span>About</span></p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Shattered Backboard Analytics. All rights reserved.</p>
-        <p>Contact: <a href="about.html">About Page</a></p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-name">Shattered Backboard <span class="thin">Analytics</span></span>
+                    <p>NBA writing backed by the numbers. Built and maintained by Eli McFadden.</p>
+                </div>
+
+                <nav class="footer-nav" aria-label="Footer">
+                    <div class="footer-col">
+                        <h4>Site</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="articles.html">Articles</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Writing</h4>
+                        <ul>
+                            <li><a href="three-point-article.html">Three-point shooting</a></li>
+                            <li><a href="attendance-article.html">Home attendance</a></li>
+                            <li><a href="pace-offense-article.html">Pace and offense</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; <span data-year>2025</span> Shattered Backboard Analytics</span>
+                <a href="mailto:eli.bball3@gmail.com">eli.bball3@gmail.com</a>
+            </div>
+        </div>
     </footer>
 
-    <!-- X / Twitter embed script (only once on this page) -->
+    <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Enlarged chart">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-panel">
+            <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+            <img src="" alt="">
+            <p class="lightbox-caption"></p>
+        </div>
+    </div>
+
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
-
