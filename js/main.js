@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Shattered Backboard Analytics — site behaviour
+   Shattered Backboard Analytics: site behaviour
    Theme toggle, mobile nav, reading progress, chart lightbox, scroll reveal.
    The initial theme class is set by the inline script in each page <head>
    so there is no flash before this file runs.
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var root = document.documentElement;
 
     /* ----------------------------------------------------------------------
-       Theme toggle — dark is the default, light is the stored opt-in
+       Theme toggle: dark is the default, light is the stored opt-in
        ---------------------------------------------------------------------- */
 
     var themeToggle = document.querySelector('.theme-toggle');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             try {
                 localStorage.setItem('theme', light ? 'light' : 'dark');
             } catch (e) {
-                /* storage blocked — the toggle still works for this page view */
+                /* storage blocked, the toggle still works for this page view */
             }
         });
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ----------------------------------------------------------------------
-       Chart lightbox — any image marked data-zoom opens full size
+       Chart lightbox: any image marked data-zoom opens full size
        ---------------------------------------------------------------------- */
 
     var lightbox = document.querySelector('.lightbox');

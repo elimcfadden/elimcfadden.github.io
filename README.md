@@ -6,13 +6,13 @@ A static site (HTML/CSS/JS, no build step) published with GitHub Pages.
 
 ## Structure
 
-- `index.html` — front page: hero, three-point stat strip, lead story, project intro
-- `articles.html` — full article index
-- `three-point-article.html` — feature article
-- `attendance-article.html`, `pace-offense-article.html` — drafts with finished charts
-- `about.html` — about the project
-- `css/styles.css` — the whole design system (tokens, layout, components)
-- `js/main.js` — theme toggle, mobile nav, reading progress, chart lightbox, scroll reveal
+- `index.html`: front page. Hero, three-point stat strip, lead story, project intro.
+- `articles.html`: full article index.
+- `three-point-article.html`: feature article.
+- `attendance-article.html`, `pace-offense-article.html`: drafts with finished charts.
+- `about.html`: about the project.
+- `css/styles.css`: the whole design system (tokens, layout, components).
+- `js/main.js`: theme toggle, mobile nav, reading progress, chart lightbox, scroll reveal.
 
 ## Notes
 
