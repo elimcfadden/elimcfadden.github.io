@@ -1,6 +1,6 @@
 /* ==========================================================================
    Shattered Backboard Analytics
-   Design system — editorial, dark-first, hairline rules, mono eyebrows,
+   Design system: editorial, dark-first, hairline rules, mono eyebrows,
    one vivid accent. Built for reading articles.
    ========================================================================== */
 
@@ -137,7 +137,7 @@ h1, h2, h3, h4 {
 .skip-link:focus { top: 1rem; }
 
 /* --------------------------------------------------------------------------
-   3. Shared bits — eyebrow, section heads, buttons, tags, metadata
+   3. Shared bits: eyebrow, section heads, buttons, tags, metadata
    -------------------------------------------------------------------------- */
 
 .eyebrow {
@@ -1156,6 +1156,19 @@ h1, h2, h3, h4 {
     color: var(--text-dim);
 }
 
+.toolbox-group { margin-top: 1.4rem; }
+
+.about-body .toolbox-label {
+    margin-bottom: 0;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.toolbox-group .toolbox { margin: 0.65rem 0 0; }
+
 .contact-card {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -1167,6 +1180,8 @@ h1, h2, h3, h4 {
 .contact-card h3 { font-size: 1.1rem; letter-spacing: -0.02em; }
 
 .contact-card p { margin: 0.6rem 0 1.1rem; color: var(--text-dim); font-size: 0.95rem; }
+
+.contact-card .contact-note { margin: 1.4rem 0 1.1rem; }
 
 @media (max-width: 880px) {
     .about-layout { grid-template-columns: 1fr; }
