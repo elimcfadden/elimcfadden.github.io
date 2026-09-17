@@ -7,9 +7,9 @@
 
 ## 1. Project Overview
 
-**Shattered Backboard Analytics** is an NBA-focused visualization and opinion site built entirely with static HTML, CSS, and vanilla JavaScript. The site presents data-driven basketball analysis through clean visualizations and article-style breakdowns. The core philosophy is simple: share takes that might sound bold at first, but shouldn't be once the data is on the table.
+**Shattered Backboard Analytics** is an NBA-focused visualization and opinion site built entirely with static HTML, CSS, and vanilla JavaScript. The site presents data-driven basketball analysis through clean visualizations and article-style breakdowns. The core philosophy is simple: dig into the data, build the visualizations, and write up what they actually show.
 
-The tech stack is intentionally minimal—no frameworks, no build tools, just semantic HTML, organized CSS, and progressive enhancement via JavaScript. This makes the site fast, maintainable, and easy to host on GitHub Pages or any static hosting service.
+The tech stack is intentionally minimal, with no frameworks, no build tools, just semantic HTML, organized CSS, and progressive enhancement via JavaScript. This makes the site fast, maintainable, and easy to host on GitHub Pages or any static hosting service.
 
 The user experience centers around a striking home page hero section with a "Do you really know ball?" call-to-action, a featured articles grid showcasing the main three-point shooting analysis, a visualizations gallery with click-to-enlarge lightbox functionality, and dedicated article pages that combine written analysis with embedded visualizations and social media content.
 
@@ -660,7 +660,7 @@ background-image: url("../images/filename.jpg");
   - Focus return to trigger element on close
   - Screen reader announcements
 - **Keyboard Navigation:** Generally good, but modal could trap focus better
-- **Color Contrast:** Text on image backgrounds relies on text shadows for readability—should verify WCAG compliance
+- **Color Contrast:** Text on image backgrounds relies on text shadows for readability, so WCAG compliance should be verified WCAG compliance
 
 ### Quick Fixes / Overrides
 
@@ -670,9 +670,9 @@ background-image: url("../images/filename.jpg");
 
 ### Browser Compatibility
 
-- **Modern CSS Features:** Uses `inset`, flexbox, CSS Grid—may not work in very old browsers
-- **JavaScript:** Uses modern JS (arrow functions, `querySelectorAll`)—may need polyfills for IE11 if support required
-- **LocalStorage:** Dark mode preference relies on localStorage—gracefully degrades if unavailable
+- **Modern CSS Features:** Uses `inset`, flexbox, CSS Grid, so it may not work in very old browsers
+- **JavaScript:** Uses modern JS (arrow functions, `querySelectorAll`), so it may need polyfills for IE11 if support required
+- **LocalStorage:** Dark mode preference relies on localStorage and gracefully degrades if unavailable
 
 ---
 

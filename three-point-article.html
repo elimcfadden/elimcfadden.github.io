@@ -86,6 +86,9 @@
                 </div>
             </header>
 
+            <!-- This article's own stat strip, built by js/render.js -->
+            <section class="stat-strip" data-stat-strip="three-point-article.html"></section>
+
             <div class="wrap article-layout">
                 <div class="article-body">
                     <p class="standfirst">Three point shooting used to be more of a side dish than the main course. Teams ran their offense to get something at the rim or a clean midrange look, and the three was there if a shooter happened to be open. That started to shift as analytics took hold, but it really exploded once Steph Curry and other perimeter players started taking and making threes at a volume nobody had seen before. After that, the league followed. Attempts from deep went way up, and the three point line became the center of everything.</p>
@@ -135,7 +138,7 @@
                         <blockquote class="twitter-tweet">
                             <p lang="en" dir="ltr">Steph Curry tonight<br><br>34 points<br>9 threes<br>Carried Team USA to the win &#128016;
                                 <a href="https://t.co/nFdxnrwDit">pic.twitter.com/nFdxnrwDit</a>
-                            </p>&mdash; Steph Curry Muse (@StephMuse_)
+                            </p>&ndash; Steph Curry Muse (@StephMuse_)
                             <a href="https://twitter.com/StephMuse_/status/1821649830021599482?ref_src=twsrc%5Etfw">August 8, 2024</a>
                         </blockquote>
                     </section>
@@ -151,55 +154,7 @@
                     <a class="section-link" href="articles.html">Full index &rarr;</a>
                 </div>
 
-                <div class="card-grid">
-                    <article class="card is-draft">
-                        <a href="attendance-article.html">
-                            <div class="card-thumb is-chart">
-                                <img src="images/avghomeattendance_viz.png"
-                                     alt="Bar chart of average home attendance by NBA team"
-                                     width="1146" height="854" loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <span class="tag muted">In progress</span>
-                                <h3>What average home attendance says about a franchise</h3>
-                                <p>Attendance by team from 2001 to 2017 is charted. The write-up is still being worked on.</p>
-                                <p class="meta"><span>Draft</span> <span class="dot" aria-hidden="true">&middot;</span> <span>Attendance</span></p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="card is-draft">
-                        <a href="pace-offense-article.html">
-                            <div class="card-thumb is-chart">
-                                <img src="images/offensiveratingvspacev_viz.png"
-                                     alt="Line chart comparing offensive rating and pace across seasons"
-                                     width="1146" height="854" loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <span class="tag muted">In progress</span>
-                                <h3>Pace and offensive rating do not move the way you think</h3>
-                                <p>The chart is built; the argument about where they actually separate is still in progress.</p>
-                                <p class="meta"><span>Draft</span> <span class="dot" aria-hidden="true">&middot;</span> <span>Team performance</span></p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="card">
-                        <a href="about.html">
-                            <div class="card-thumb">
-                                <img src="images/backboard.jpg"
-                                     alt="A weathered outdoor basketball backboard against a grey sky"
-                                     width="1200" height="1800" loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <span class="tag">The project</span>
-                                <h3>How this site gets built, and what is coming next</h3>
-                                <p>The tools behind the charts, and where Shattered Backboard Analytics is headed.</p>
-                                <p class="meta"><span>About</span></p>
-                            </div>
-                        </a>
-                    </article>
-                </div>
+                <div class="card-grid" data-next-up></div>
             </div>
         </section>
     </main>
@@ -223,17 +178,13 @@
                     </div>
                     <div class="footer-col">
                         <h4>Writing</h4>
-                        <ul>
-                            <li><a href="three-point-article.html">Three-point shooting</a></li>
-                            <li><a href="attendance-article.html">Home attendance</a></li>
-                            <li><a href="pace-offense-article.html">Pace and offense</a></li>
-                        </ul>
+                        <ul data-footer-writing></ul>
                     </div>
                 </nav>
             </div>
 
             <div class="footer-bottom">
-                <span>&copy; <span data-year>2025</span> Shattered Backboard Analytics</span>
+                <span>&copy; <span data-year>2026</span> Shattered Backboard Analytics</span>
                 <a href="mailto:eli.bball3@gmail.com">eli.bball3@gmail.com</a>
             </div>
         </div>
@@ -249,6 +200,8 @@
     </div>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="js/articles-data.js"></script>
+    <script src="js/render.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Eli McFadden">
-    <meta name="description" content="Shattered Backboard Analytics: NBA writing backed by the numbers. Bold takes about how the league actually plays, with the charts to prove them.">
+    <meta name="description" content="Shattered Backboard Analytics: NBA analysis backed by the numbers, by Eli McFadden.">
     <meta name="keywords" content="NBA analytics, basketball analytics, three-point shooting, data visualization, sports writing">
-    <title>Shattered Backboard Analytics: NBA takes, backed by the numbers</title>
+    <title>Shattered Backboard Analytics: NBA analysis, backed by the numbers</title>
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -74,7 +74,7 @@
                 <div class="hero-inner">
                     <span class="eyebrow">NBA analytics &middot; Eli McFadden</span>
                     <h1>Do you really know <span class="accent">ball</span>?</h1>
-                    <p class="hero-sub">Hype fades. Narratives change. The numbers don’t. No what-ifs, just what actually happened, with the analysis and the charts to prove it.</p>
+                    <p class="hero-sub">Hype fades. Narratives change. The numbers don’t. No what-ifs, just what actually happened, and the analysis to prove it.</p>
                     <div class="hero-actions">
                         <a class="button primary" href="three-point-article.html">Read the latest <span class="arrow" aria-hidden="true">&rarr;</span></a>
                         <a class="button ghost" href="articles.html">All articles</a>
@@ -83,29 +83,8 @@
             </div>
         </section>
 
-        <section class="stat-strip" aria-label="Three-point shooting at a glance">
-            <div class="wrap">
-                <div class="stat-grid">
-                    <div class="stat">
-                        <p class="stat-value">2.5 <span class="to">&rarr;</span> <span class="hi">34.2</span></p>
-                        <p class="stat-label">Threes attempted per game</p>
-                    </div>
-                    <div class="stat">
-                        <p class="stat-value">0.3 <span class="to">&rarr;</span> <span class="hi">12.3</span></p>
-                        <p class="stat-label">Threes made per game</p>
-                    </div>
-                    <div class="stat">
-                        <p class="stat-value">35.2</p>
-                        <p class="stat-label">Peak attempts, 2021&ndash;22</p>
-                    </div>
-                    <div class="stat">
-                        <p class="stat-value">43</p>
-                        <p class="stat-label">Seasons charted</p>
-                    </div>
-                </div>
-                <p class="stat-source">Read from &ldquo;Three-Point Attempts and Makes Over the Years,&rdquo; 1979&ndash;80 through 2022&ndash;23.</p>
-            </div>
-        </section>
+        <!-- Stat strip for the newest published article, built by js/render.js -->
+        <section class="stat-strip" data-stat-strip="latest"></section>
 
         <section class="section">
             <div class="wrap">
@@ -116,60 +95,11 @@
                 </div>
 
                 <div class="lead-layout">
-                    <article class="lead-story reveal">
-                        <a href="three-point-article.html">
-                            <div class="lead-figure is-chart">
-                                <img src="images/3pt_viz.png"
-                                     alt="Line chart showing league three-point attempts and makes per game climbing sharply after 2012"
-                                     width="1146" height="854">
-                                <span class="tag">Feature</span>
-                            </div>
-                            <div class="lead-body">
-                                <span class="eyebrow">Three-point shooting</span>
-                                <h3>Three point shooting changed the game, for better and worse</h3>
-                                <p class="lead-dek">Spacing was supposed to unlock easier offense. A lot of the league skipped straight to the pull-up instead, and the chart shows exactly when the shift happened.</p>
-                                <p class="meta">
-                                    <span class="byline-name">Eli McFadden</span>
-                                    <span class="dot" aria-hidden="true">&middot;</span>
-                                    <span>4 min read</span>
-                                    <span class="dot" aria-hidden="true">&middot;</span>
-                                    <span>Analysis</span>
-                                </p>
-                            </div>
-                        </a>
-                    </article>
+                    <article data-latest-card></article>
 
                     <div class="rail reveal">
                         <p class="rail-title">In the works</p>
-                        <ul class="rail-list">
-                            <li class="rail-item">
-                                <a href="attendance-article.html">
-                                    <span class="rail-num" aria-hidden="true">01</span>
-                                    <div>
-                                        <h4>What average home attendance says about a franchise</h4>
-                                        <p class="meta"><span>Draft</span> <span class="dot" aria-hidden="true">&middot;</span> <span>Attendance</span></p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="rail-item">
-                                <a href="pace-offense-article.html">
-                                    <span class="rail-num" aria-hidden="true">02</span>
-                                    <div>
-                                        <h4>Pace and offensive rating do not move the way you think</h4>
-                                        <p class="meta"><span>Draft</span> <span class="dot" aria-hidden="true">&middot;</span> <span>Team performance</span></p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="rail-item">
-                                <a href="about.html">
-                                    <span class="rail-num" aria-hidden="true">03</span>
-                                    <div>
-                                        <h4>How this site gets built, and what is coming next</h4>
-                                        <p class="meta"><span>About</span> <span class="dot" aria-hidden="true">&middot;</span> <span>The project</span></p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                        <ul class="rail-list" data-drafts-list></ul>
                     </div>
                 </div>
             </div>
@@ -188,19 +118,10 @@
                         <img src="images/backboard.jpg"
                              alt="A weathered outdoor basketball backboard against a grey sky"
                              width="1200" height="1800" loading="lazy">
-                        <figcaption>Every take here has to survive the chart behind it.</figcaption>
                     </figure>
 
                     <div class="about-body reveal">
-                        <h2>Takes that sound bold until you see the data</h2>
-                        <p>Shattered Backboard Analytics is an NBA-only writing and visualization project. The idea is simple: make an argument about how the league plays, then put the chart on the table next to it. If the numbers do not back the take, the take does not run.</p>
-                        <p>Every visualization on the site is built from scratch, currently in Tableau, with Power BI, SQL and Python work planned as the project grows. Articles show up when the analysis is actually finished, not on a schedule.</p>
-                        <ul class="toolbox">
-                            <li>Tableau</li>
-                            <li>SQL</li>
-                            <li>Python</li>
-                            <li>Power BI</li>
-                        </ul>
+                        <p>My career is in data analysis and information systems, and basketball has always been my favorite sport. This site is where the two meet: digging into NBA data, from advanced stats to how the game has changed over the decades, to see what really happened.</p>
                         <a class="button ghost" href="about.html">More about the project <span class="arrow" aria-hidden="true">&rarr;</span></a>
                     </div>
                 </div>
@@ -227,22 +148,20 @@
                     </div>
                     <div class="footer-col">
                         <h4>Writing</h4>
-                        <ul>
-                            <li><a href="three-point-article.html">Three-point shooting</a></li>
-                            <li><a href="attendance-article.html">Home attendance</a></li>
-                            <li><a href="pace-offense-article.html">Pace and offense</a></li>
-                        </ul>
+                        <ul data-footer-writing></ul>
                     </div>
                 </nav>
             </div>
 
             <div class="footer-bottom">
-                <span>&copy; <span data-year>2025</span> Shattered Backboard Analytics</span>
+                <span>&copy; <span data-year>2026</span> Shattered Backboard Analytics</span>
                 <a href="mailto:eli.bball3@gmail.com">eli.bball3@gmail.com</a>
             </div>
         </div>
     </footer>
 
+    <script src="js/articles-data.js"></script>
+    <script src="js/render.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Eli McFadden">
-    <meta name="description" content="About Eli McFadden and Shattered Backboard Analytics: an NBA-only writing and visualization project where every take comes with the chart behind it.">
-    <meta name="keywords" content="about, Eli McFadden, sports analytics, data engineering, NBA, Tableau">
+    <meta name="description" content="About Shattered Backboard Analytics: an NBA writing and analysis project by Eli McFadden.">
+    <meta name="keywords" content="about, Eli McFadden, sports analytics, data engineering, NBA">
     <title>About | Shattered Backboard Analytics</title>
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -72,7 +72,7 @@
             <div class="wrap">
                 <span class="eyebrow">The project</span>
                 <h1>About</h1>
-                <p>An NBA-only writing and visualization project, built on the idea that a bold take should come with the chart that backs it.</p>
+                <p>An NBA writing and analysis project by Eli McFadden.</p>
             </div>
         </section>
 
@@ -81,37 +81,83 @@
                 <img src="images/backboard.jpg"
                      alt="A weathered outdoor basketball backboard against a grey sky"
                      width="1200" height="1800">
-                <figcaption>Every take here has to survive the chart behind it.</figcaption>
             </figure>
 
             <div class="about-body">
-                <h2>Who is behind it</h2>
-                <p>My name is Eli McFadden and I work with data. Pipelines, warehouses, dashboards, and the analysis that sits on top of them. I graduated from Utah State University in December 2025 with a B.S. in Information Systems, a Data Engineering emphasis, and a minor in Data Analytics.</p>
-                <p>Most of my work is the unglamorous kind. Modeling a warehouse in Snowflake and dbt, automating a process that used to be manual cleanup, building the dashboard that finally puts a number in front of the person who can act on it. Shattered Backboard Analytics is that same work pointed at the thing I actually argue about with my friends.</p>
-                <p>I'm open to analyst roles, in sports or out of it. The domain matters less to me than the problem being real.</p>
+                <h2>About me</h2>
+                <p>Since I can remember, basketball has been my favorite sport. Much of my childhood was spent on the court or in the driveway, playing competitively with friends or just shooting hoops. I&rsquo;ve always been a big Denver Nuggets fan and try to watch as many games as I can. Some of my favorite players over the years have been Carmelo Anthony, Kenneth Faried, Ty Lawson, Jamal Murray, and, obviously, Nikola Joki&#263;. I love talking basketball, whether the conversation stays friendly or not.</p>
+                <p>I graduated from Utah State University&rsquo;s Jon M. Huntsman School of Business with a B.S. in Information Systems, an emphasis in Data Engineering, and a minor in Data Analytics. Working with data turned out to be something I genuinely enjoy, and the NBA is my favorite thing to point it at.</p>
+                <p>This site is my way of bringing these two passions together and getting my opinions out there. I hope you enjoy the articles, and if you disagree, send me a message below.</p>
+
+                <!-- Photo strip: one row on desktop, a snapping swipe row on phones.
+                     Landscape frames for team and parade, portrait for brother and gf.
+                     No captions by design. -->
+                <div class="polaroids">
+                    <figure class="polaroid">
+                        <div class="polaroid-frame">
+                            <picture>
+                                <source srcset="images/about/team.webp" type="image/webp">
+                                <img src="images/about/team.jpg"
+                                     alt="Eli with his youth basketball team, the Junkyard Dawgs, wearing medals"
+                                     width="1170" height="860" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </figure>
+
+                    <figure class="polaroid is-portrait">
+                        <div class="polaroid-frame">
+                            <picture>
+                                <source srcset="images/about/brother.webp" type="image/webp">
+                                <img class="pos-brother" src="images/about/brother.jpg"
+                                     alt="Eli and his brother courtside at a Denver Nuggets game"
+                                     width="756" height="1200" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </figure>
+
+                    <figure class="polaroid">
+                        <div class="polaroid-frame">
+                            <picture>
+                                <source srcset="images/about/parade.webp" type="image/webp">
+                                <img src="images/about/parade.jpg"
+                                     alt="Crowd at the Denver Nuggets 2023 championship celebration in Denver"
+                                     width="1169" height="855" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </figure>
+
+                    <figure class="polaroid is-portrait">
+                        <div class="polaroid-frame">
+                            <picture>
+                                <source srcset="images/about/gf.webp" type="image/webp">
+                                <img src="images/about/gf.jpg"
+                                     alt="Eli and his girlfriend at a Nuggets game"
+                                     width="552" height="727" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </figure>
+                </div>
 
                 <h2>What Shattered Backboard Analytics is</h2>
-                <p>Shattered Backboard Analytics is an NBA-only visualization and opinion site built on analysis. The idea is simple: share takes that might sound bold at first, but shouldn't be once the data is on the table.</p>
-                <p>Everything here is backed by visualizations I create, with article-style breakdowns that explain what the charts are actually saying. The charts are built in Tableau right now, with SQL, Python, and Power BI work showing up as the analysis gets deeper. Pieces run when the analysis holds up, not on a schedule.</p>
+                <p>Shattered Backboard Analytics is an NBA-only analysis site. I dig into the data, build the visualizations, and write up what they actually show. Pieces run when the analysis holds up, not on a schedule.</p>
 
                 <h2>The toolbox</h2>
                 <div class="toolbox-group">
                     <p class="toolbox-label">Building the charts here</p>
+                    <!-- Placeholder chips: swap "Insert here" for the real tool names. -->
                     <ul class="toolbox">
-                        <li>Tableau</li>
-                        <li>Excel</li>
+                        <li>Insert here</li>
+                        <li>Insert here</li>
+                        <li>Insert here</li>
                     </ul>
                 </div>
                 <div class="toolbox-group">
                     <p class="toolbox-label">The rest of the stack</p>
+                    <!-- Placeholder chips: swap "Insert here" for the real tool names. -->
                     <ul class="toolbox">
-                        <li>SQL</li>
-                        <li>Python</li>
-                        <li>Power BI</li>
-                        <li>Snowflake</li>
-                        <li>dbt</li>
-                        <li>PostgreSQL</li>
-                        <li>Git</li>
+                        <li>Insert here</li>
+                        <li>Insert here</li>
+                        <li>Insert here</li>
                     </ul>
                 </div>
 
@@ -119,8 +165,45 @@
                     <h3>Get in touch</h3>
                     <p>Questions about the site, a suggestion, or an argument about a chart. All welcome.</p>
                     <a class="button primary" href="mailto:eli.bball3@gmail.com">eli.bball3@gmail.com <span class="arrow" aria-hidden="true">&rarr;</span></a>
-                    <p class="contact-note">For work and business inquiries, LinkedIn is the better door.</p>
+                    <p class="contact-note">For work opportunities, LinkedIn is the best way to reach me.</p>
                     <a class="button ghost" href="https://www.linkedin.com/in/mcfaddeneli" target="_blank" rel="noopener">Connect on LinkedIn <span class="arrow" aria-hidden="true">&rarr;</span></a>
+
+                    <!-- Replace YOUR_FORMSPREE_ID with the real form id from Formspree.
+                         Submission is handled by js/main.js so the page never reloads. -->
+                    <form class="contact-form"
+                          action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+                          method="post"
+                          novalidate>
+                        <p class="contact-form-title">Or send a message right here</p>
+
+                        <div class="field">
+                            <label for="cf-name">Name</label>
+                            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+                            <p class="field-error" data-error-for="cf-name"></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="cf-email">Email</label>
+                            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+                            <p class="field-error" data-error-for="cf-email"></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" rows="5" required></textarea>
+                            <p class="field-error" data-error-for="cf-message"></p>
+                        </div>
+
+                        <!-- Honeypot. Hidden from people, bots fill it in and get dropped. -->
+                        <div class="honeypot" aria-hidden="true">
+                            <label for="cf-company">Company</label>
+                            <input id="cf-company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <button class="button primary" type="submit">Send message</button>
+
+                        <p class="form-status" role="status" aria-live="polite"></p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -145,21 +228,19 @@
                     </div>
                     <div class="footer-col">
                         <h4>Writing</h4>
-                        <ul>
-                            <li><a href="three-point-article.html">Three-point shooting</a></li>
-                            <li><a href="attendance-article.html">Home attendance</a></li>
-                            <li><a href="pace-offense-article.html">Pace and offense</a></li>
-                        </ul>
+                        <ul data-footer-writing></ul>
                     </div>
                 </nav>
             </div>
 
             <div class="footer-bottom">
-                <span>&copy; <span data-year>2025</span> Shattered Backboard Analytics</span>
+                <span>&copy; <span data-year>2026</span> Shattered Backboard Analytics</span>
                 <a href="mailto:eli.bball3@gmail.com">eli.bball3@gmail.com</a>
             </div>
         </div>
     </footer>
+    <script src="js/articles-data.js"></script>
+    <script src="js/render.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

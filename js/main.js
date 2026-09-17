@@ -139,6 +139,117 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ----------------------------------------------------------------------
+       Contact form
+       Posts to Formspree with fetch so the page never navigates away. The
+       form carries novalidate, so the checks below are the only ones that
+       run and the messages stay consistent across browsers.
+       ---------------------------------------------------------------------- */
+
+    var contactForm = document.querySelector('.contact-form');
+
+    if (contactForm) {
+        var status = contactForm.querySelector('.form-status');
+        var submitButton = contactForm.querySelector('button[type="submit"]');
+
+        /* Deliberately loose: something, an @, something, a dot, something.
+           Anything stricter starts rejecting addresses that really work. */
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        var setError = function (field, message) {
+            var slot = contactForm.querySelector('[data-error-for="' + field.id + '"]');
+            if (slot) { slot.textContent = message; }
+            field.classList.toggle('is-invalid', Boolean(message));
+            field.setAttribute('aria-invalid', message ? 'true' : 'false');
+        };
+
+        var validate = function () {
+            var name = contactForm.querySelector('#cf-name');
+            var email = contactForm.querySelector('#cf-email');
+            var message = contactForm.querySelector('#cf-message');
+            var firstBad = null;
+
+            if (!name.value.trim()) {
+                setError(name, 'Please add your name.');
+                firstBad = firstBad || name;
+            } else { setError(name, ''); }
+
+            if (!email.value.trim()) {
+                setError(email, 'Please add your email.');
+                firstBad = firstBad || email;
+            } else if (!emailPattern.test(email.value.trim())) {
+                setError(email, 'That email address does not look right.');
+                firstBad = firstBad || email;
+            } else { setError(email, ''); }
+
+            if (!message.value.trim()) {
+                setError(message, 'Please add a message.');
+                firstBad = firstBad || message;
+            } else { setError(message, ''); }
+
+            return firstBad;
+        };
+
+        var setStatus = function (text, kind) {
+            status.textContent = text;
+            status.classList.remove('is-ok', 'is-error');
+            if (kind) { status.classList.add(kind); }
+        };
+
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var firstBad = validate();
+            if (firstBad) {
+                setStatus('', null);
+                firstBad.focus();
+                return;
+            }
+
+            /* A filled honeypot means a bot. Look like it worked, send nothing. */
+            var honeypot = contactForm.querySelector('[name="_gotcha"]');
+            if (honeypot && honeypot.value) {
+                contactForm.reset();
+                setStatus('Thanks, your message is on its way.', 'is-ok');
+                return;
+            }
+
+            submitButton.disabled = true;
+            setStatus('Sending...', null);
+
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { Accept: 'application/json' }
+            }).then(function (response) {
+                if (response.ok) {
+                    contactForm.reset();
+                    setStatus('Thanks, your message is on its way.', 'is-ok');
+                    return;
+                }
+                return response.json().then(function (data) {
+                    var detail = data && data.errors && data.errors.length
+                        ? data.errors.map(function (e) { return e.message; }).join(' ')
+                        : 'Something went wrong sending that.';
+                    setStatus(detail + ' You can also email eli.bball3@gmail.com.', 'is-error');
+                }, function () {
+                    setStatus('Something went wrong sending that. You can also email eli.bball3@gmail.com.', 'is-error');
+                });
+            }).catch(function () {
+                setStatus('That did not send, the network may be down. You can also email eli.bball3@gmail.com.', 'is-error');
+            }).then(function () {
+                submitButton.disabled = false;
+            });
+        });
+
+        /* Clear a field's complaint as soon as it is being fixed */
+        contactForm.querySelectorAll('input, textarea').forEach(function (field) {
+            field.addEventListener('input', function () {
+                if (field.classList.contains('is-invalid')) { setError(field, ''); }
+            });
+        });
+    }
+
+    /* ----------------------------------------------------------------------
        Footer year
        ---------------------------------------------------------------------- */
 

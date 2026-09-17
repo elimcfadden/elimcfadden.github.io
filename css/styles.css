@@ -88,7 +88,10 @@ body {
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* clip is the safe one: unlike hidden it does not turn the viewport into
+       a scroll container, which is what breaks position: sticky on iOS. */
     overflow-x: hidden;
+    overflow-x: clip;
     transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
 }
 
@@ -377,6 +380,11 @@ h1, h2, h3, h4 {
 @media (max-width: 720px) {
     .nav-toggle { display: grid; }
 
+    /* The closed drawer parks on exactly its own height, so its bottom edge
+       always lands on the header's bottom edge whatever the link count. A
+       percentage past 100% left part of this opaque panel sitting on top of
+       the header and repainting it. visibility keeps the closed drawer from
+       painting at all, and takes its links out of the tab order. */
     .nav-links {
         position: fixed;
         inset: var(--header-h) 0 auto 0;
@@ -387,11 +395,19 @@ h1, h2, h3, h4 {
         padding: 0.5rem var(--gutter) 1.1rem;
         background: var(--bg);
         border-bottom: 1px solid var(--line);
-        transform: translateY(-115%);
-        transition: transform 0.3s var(--ease);
+        max-height: calc(100vh - var(--header-h));
+        max-height: calc(100svh - var(--header-h));
+        overflow-y: auto;
+        transform: translateY(-100%);
+        visibility: hidden;
+        transition: transform 0.3s var(--ease), visibility 0s linear 0.3s;
     }
 
-    .nav-links.open { transform: translateY(0); }
+    .nav-links.open {
+        transform: translateY(0);
+        visibility: visible;
+        transition: transform 0.3s var(--ease), visibility 0s;
+    }
 
     .nav-links a {
         padding: 0.85rem 0.4rem;
@@ -1117,7 +1133,7 @@ h1, h2, h3, h4 {
     line-height: 1.5;
 }
 
-.about-body { max-width: var(--wrap-text); }
+.about-body { max-width: var(--wrap-text); min-width: 0; }
 
 .about-body h2 {
     margin: 2.5rem 0 1rem;
@@ -1286,6 +1302,7 @@ h1, h2, h3, h4 {
 
 .lightbox-panel img {
     max-height: 78vh;
+    max-height: 78dvh;
     width: auto;
     object-fit: contain;
 }
@@ -1378,3 +1395,217 @@ body.no-scroll { overflow: hidden; }
 .index-row.is-draft .index-thumb.is-chart img { opacity: 1; filter: none; }
 
 .about-layout.flush { padding-block: 0; }
+
+/* --------------------------------------------------------------------------
+   18. Polaroid photo strip (about page)
+   Landscape and portrait frames sit in one row and share a height, so the
+   widths differ but the tops and bottoms line up.
+   -------------------------------------------------------------------------- */
+
+.polaroids {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    /* Room for the tilted corners and the drop shadows so neither is clipped */
+    padding: 2rem 0.75rem 2.5rem;
+    margin-top: 1.25rem;
+    min-width: 0;
+}
+
+/* Widths are shared out in proportion to each frame's aspect ratio, which is
+   what makes every frame in the row come out the same height. content-box
+   keeps the white border out of that split, so the ratio stays exact.
+   Growing and shrinking from a zero basis means the row always fits its
+   column instead of forcing the page wider. */
+.polaroid {
+    box-sizing: content-box;
+    flex: 4 1 0;
+    min-width: 0;
+    background: #fdfdfb;
+    padding: 0.6rem 0.6rem 1.9rem;   /* thicker bottom border, like a real one */
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 14px 30px rgba(0, 0, 0, 0.32);
+    transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+}
+
+.polaroid.is-portrait { flex: 2.25 1 0; }
+
+.polaroid-frame {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--bg-inset);
+}
+
+.polaroid.is-portrait .polaroid-frame { aspect-ratio: 3 / 4; }
+
+.polaroid picture,
+.polaroid img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.polaroid img {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Keeps both faces inside the portrait crop */
+.polaroid img.pos-brother { object-position: center 30%; }
+
+/* The alternating lean */
+.polaroid:nth-child(1) { transform: rotate(-3deg); }
+.polaroid:nth-child(2) { transform: rotate(2deg); }
+.polaroid:nth-child(3) { transform: rotate(-2deg); }
+.polaroid:nth-child(4) { transform: rotate(3deg); }
+
+/* Straighten and lift, but only where a real pointer can hover */
+@media (hover: hover) {
+    .polaroid:hover {
+        transform: rotate(0deg) translateY(-8px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28), 0 22px 46px rgba(0, 0, 0, 0.42);
+        z-index: 2;
+    }
+}
+
+/* Phones: a snapping swipe row that shows a slice of the next photo */
+@media (max-width: 720px) {
+    .polaroids {
+        --polaroid-h: clamp(10rem, 38vw, 14rem);
+
+        display: flex;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 0.75rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* The right pad lets the last photo still snap to the left edge while
+           the row keeps hinting that it scrolls */
+        padding: 2rem 40% 2.5rem 0.75rem;
+    }
+
+    .polaroids::-webkit-scrollbar { display: none; }
+
+    /* In the swipe row the frames are sized off a shared height instead of a
+       shared width, so the next photo peeks in from the right. */
+    .polaroid {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+    }
+
+    /* Width is derived from the shared height rather than left to the image's
+       intrinsic size, which would otherwise win in a shrink to fit row. */
+    .polaroid-frame {
+        height: var(--polaroid-h);
+        width: calc(var(--polaroid-h) * 4 / 3);
+    }
+
+    .polaroid.is-portrait .polaroid-frame {
+        width: calc(var(--polaroid-h) * 3 / 4);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .polaroid,
+    .polaroid:nth-child(1),
+    .polaroid:nth-child(2),
+    .polaroid:nth-child(3),
+    .polaroid:nth-child(4) { transform: none; }
+
+    .polaroid:hover { transform: none; }
+}
+
+/* --------------------------------------------------------------------------
+   19. Contact form
+   -------------------------------------------------------------------------- */
+
+.contact-form {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 1rem;
+}
+
+.contact-form-title {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+
+.contact-form .field { display: grid; gap: 0.4rem; }
+
+.contact-form label {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    background: var(--bg);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 1rem;              /* 16px keeps iOS from zooming on focus */
+    line-height: 1.5;
+    transition: border-color 0.18s var(--ease), background-color 0.18s var(--ease);
+}
+
+.contact-form textarea { resize: vertical; min-height: 7rem; }
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--bg-inset);
+}
+
+.contact-form .is-invalid { border-color: var(--accent); }
+
+.field-error {
+    font-size: 0.78rem;
+    color: var(--accent);
+    min-height: 0;
+}
+
+.field-error:empty { display: none; }
+
+.contact-form button { justify-self: start; }
+
+.contact-form button[disabled] { opacity: 0.6; cursor: default; }
+
+.form-status {
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.form-status:empty { display: none; }
+
+.form-status.is-ok { color: var(--text); }
+
+.form-status.is-error { color: var(--accent); }
+
+/* Honeypot: off screen rather than display:none, which some bots skip */
+.honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+    .contact-form button { justify-self: stretch; text-align: center; justify-content: center; }
+}

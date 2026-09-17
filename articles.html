@@ -78,68 +78,7 @@
 
         <section class="section flush">
             <div class="wrap">
-                <ul class="index-list">
-                    <li class="index-row reveal">
-                        <a href="three-point-article.html">
-                            <div class="index-thumb is-chart">
-                                <img src="images/3pt_viz.png"
-                                     alt="Line chart of league three-point attempts and makes per game by season"
-                                     width="1146" height="854" loading="lazy">
-                            </div>
-                            <div class="index-main">
-                                <span class="tag">Feature</span>
-                                <h3>Three point shooting changed the game, for better and worse</h3>
-                                <p>Spacing was supposed to unlock easier offense. A lot of the league skipped straight to the pull-up instead, and the chart shows exactly when the shift happened.</p>
-                            </div>
-                            <div class="index-side">
-                                <p class="meta">
-                                    <span class="byline-name">Eli McFadden</span>
-                                    <span class="dot" aria-hidden="true">&middot;</span>
-                                    <span>4 min read</span>
-                                </p>
-                                <p class="meta"><span>Three-point shooting</span></p>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="index-row is-draft reveal">
-                        <a href="attendance-article.html">
-                            <div class="index-thumb is-chart">
-                                <img src="images/avghomeattendance_viz.png"
-                                     alt="Bar chart of average home attendance by NBA team"
-                                     width="1146" height="854" loading="lazy">
-                            </div>
-                            <div class="index-main">
-                                <span class="tag muted">In progress</span>
-                                <h3>What average home attendance says about a franchise</h3>
-                                <p>Attendance by team from 2001 to 2017 is charted. The write-up that explains which buildings actually fill up, and why, is still being worked on.</p>
-                            </div>
-                            <div class="index-side">
-                                <p class="meta"><span>Draft</span></p>
-                                <p class="meta"><span>Attendance</span></p>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="index-row is-draft reveal">
-                        <a href="pace-offense-article.html">
-                            <div class="index-thumb is-chart">
-                                <img src="images/offensiveratingvspacev_viz.png"
-                                     alt="Line chart comparing offensive rating and pace across seasons"
-                                     width="1146" height="854" loading="lazy">
-                            </div>
-                            <div class="index-main">
-                                <span class="tag muted">In progress</span>
-                                <h3>Pace and offensive rating do not move the way you think</h3>
-                                <p>Playing fast and scoring efficiently get treated as the same thing. The chart is built; the argument about where they actually separate is still in progress.</p>
-                            </div>
-                            <div class="index-side">
-                                <p class="meta"><span>Draft</span></p>
-                                <p class="meta"><span>Team performance</span></p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                <ul class="index-list" data-article-index></ul>
             </div>
         </section>
     </main>
@@ -163,21 +102,19 @@
                     </div>
                     <div class="footer-col">
                         <h4>Writing</h4>
-                        <ul>
-                            <li><a href="three-point-article.html">Three-point shooting</a></li>
-                            <li><a href="attendance-article.html">Home attendance</a></li>
-                            <li><a href="pace-offense-article.html">Pace and offense</a></li>
-                        </ul>
+                        <ul data-footer-writing></ul>
                     </div>
                 </nav>
             </div>
 
             <div class="footer-bottom">
-                <span>&copy; <span data-year>2025</span> Shattered Backboard Analytics</span>
+                <span>&copy; <span data-year>2026</span> Shattered Backboard Analytics</span>
                 <a href="mailto:eli.bball3@gmail.com">eli.bball3@gmail.com</a>
             </div>
         </div>
     </footer>
+    <script src="js/articles-data.js"></script>
+    <script src="js/render.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
